@@ -1,0 +1,15 @@
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+
+  --accent: #2563eb;
+  --danger: #dc2626;
+  --success: #16a34a;
+
+  --border-radius: 12px;
+
+  --transition: 0.2s ease;
+}

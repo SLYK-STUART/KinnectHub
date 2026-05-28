@@ -1,0 +1,903 @@
+/* ─── Fonts ─────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Page Layout ────────────────────────────────────────────────────────── */
+.page {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  grid-template-rows: auto auto 1fr;
+  gap: 24px;
+  padding: 28px 32px;
+  min-height: 100vh;
+  background: #F7F4EF;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerLeft h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1A1A18;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.headerLeft p {
+  font-size: 13px;
+  color: #9A9590;
+  margin: 4px 0 0;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.themeBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #DDD8CE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: all 0.15s ease;
+}
+
+.themeBtn:hover {
+  background: #EDE9E1;
+  transform: scale(1.05);
+}
+
+/* ─── Stats Strip ────────────────────────────────────────────────────────── */
+.statsStrip {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.statCard {
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.statIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.statValue {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1A1A18;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: #9A9590;
+  margin-top: 3px;
+}
+
+/* ─── Columns ────────────────────────────────────────────────────────────── */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* ─── Card ───────────────────────────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #F0EDE7;
+}
+
+.cardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A18;
+}
+
+.cardAction {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2D5A3D;
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(45,90,61,0.07);
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.15s;
+}
+
+.cardAction:hover {
+  background: rgba(45,90,61,0.14);
+}
+
+/* ─── Family Tree ────────────────────────────────────────────────────────── */
+.treeContainer {
+  padding: 32px 20px 24px;
+  overflow-x: auto;
+}
+
+.treeWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  min-width: 560px;
+}
+
+.treeGeneration {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* ─── Spouse pair ────────────────────────────────────────────────────────── */
+.spousePair {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.spouseConnector {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, #DDD8CE, #C9A84C88, #DDD8CE);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.spouseConnector::after {
+  content: '♥';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  color: #C9A84C;
+  background: #fff;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+/* ─── Vertical connectors ────────────────────────────────────────────────── */
+.vConnector {
+  width: 2px;
+  height: 32px;
+  background: #DDD8CE;
+  margin: 0 auto;
+}
+
+.hConnectorWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hConnectorBar {
+  height: 2px;
+  background: #DDD8CE;
+  border-radius: 2px;
+}
+
+/* ─── Tree node ──────────────────────────────────────────────────────────── */
+.treeNodeGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.treeNodeGroup::before {
+  content: '';
+  width: 2px;
+  height: 28px;
+  background: #DDD8CE;
+  display: block;
+}
+
+.treeNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  padding: 4px;
+}
+
+.treeNode:hover {
+  transform: translateY(-4px);
+}
+
+.treeNodeAvatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  border: 3px solid #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  position: relative;
+  transition: box-shadow 0.15s;
+  flex-shrink: 0;
+}
+
+.treeNode:hover .treeNodeAvatar {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+.treeNodeAvatar.deceased {
+  filter: grayscale(0.65);
+  opacity: 0.8;
+}
+
+.treeNodeAvatar.admin::after {
+  content: '👑';
+  position: absolute;
+  top: -6px;
+  right: -4px;
+  font-size: 13px;
+  background: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+.treeNodeName {
+  font-size: 12px;
+  font-weight: 500;
+  color: #1A1A18;
+  text-align: center;
+  max-width: 72px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.treeNodeRole {
+  font-size: 10px;
+  color: #9A9590;
+  text-align: center;
+}
+
+.deceasedTag {
+  font-size: 9px;
+  color: #9A9590;
+  background: #F0EDE7;
+  border-radius: 20px;
+  padding: 2px 7px;
+}
+
+/* ─── Member bar ─────────────────────────────────────────────────────────── */
+.memberBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #F7F4EF;
+  border-top: 1px solid #EDE9E2;
+}
+
+.memberAvatarStack {
+  display: flex;
+  align-items: center;
+}
+
+.miniAvatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  margin-left: -8px;
+}
+
+.miniAvatar:first-child {
+  margin-left: 0;
+}
+
+.memberCount {
+  font-size: 12px;
+  color: #9A9590;
+}
+
+/* ─── Announcements ──────────────────────────────────────────────────────── */
+.announcementList {
+  display: flex;
+  flex-direction: column;
+}
+
+.announcementItem {
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #F0EDE7;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.announcementItem:last-child {
+  border-bottom: none;
+}
+
+.announcementItem:hover {
+  background: #F7F4EF;
+}
+
+.announcementAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.announcementBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.announcementMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.announcementAuthor {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1A18;
+}
+
+.urgentBadge {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: #C0392B;
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+
+.announcementTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1A18;
+  margin-bottom: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.announcementPreview {
+  font-size: 12px;
+  color: #9A9590;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.announcementFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.announcementTime {
+  font-size: 11px;
+  color: #B0ABA5;
+}
+
+.announcementReplies {
+  font-size: 11px;
+  color: #9A9590;
+}
+
+/* ─── Events ─────────────────────────────────────────────────────────────── */
+.eventList {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  gap: 4px;
+}
+
+.eventItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.eventItem:hover {
+  background: #F7F4EF;
+}
+
+.eventDateBox {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1.5px solid;
+}
+
+.eventDateDay {
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1;
+  opacity: 0.65;
+  text-transform: uppercase;
+}
+
+.eventDateNum {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.eventInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.eventTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1A18;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eventDay {
+  font-size: 11px;
+  color: #9A9590;
+  margin-top: 2px;
+}
+
+.eventTypeBadge {
+  font-size: 18px;
+}
+
+/* ─── Memory Book ────────────────────────────────────────────────────────── */
+.memoryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 16px;
+}
+
+.memoryItem {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: #F7F4EF;
+  border: 1px solid #EDE9E2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.memoryItem:hover {
+  background: #EDE9E1;
+  transform: scale(1.04);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.memoryEmoji {
+  font-size: 26px;
+}
+
+.memoryLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: #5A5750;
+  text-align: center;
+  padding: 0 6px;
+  line-height: 1.3;
+}
+
+.memoryCount {
+  font-size: 10px;
+  color: #9A9590;
+}
+
+/* ─── Wall ───────────────────────────────────────────────────────────────── */
+.wallList {
+  display: flex;
+  flex-direction: column;
+}
+
+.wallItem {
+  display: flex;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #F0EDE7;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.wallItem:last-child {
+  border-bottom: none;
+}
+
+.wallItem:hover {
+  background: #F7F4EF;
+}
+
+.wallAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.wallBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.wallAuthor {
+  font-size: 12px;
+  font-weight: 500;
+  color: #5A5750;
+  margin-bottom: 3px;
+}
+
+.wallText {
+  font-size: 13px;
+  color: #1A1A18;
+  line-height: 1.5;
+}
+
+.wallFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.wallReactions {
+  font-size: 12px;
+  color: #9A9590;
+}
+
+.wallTime {
+  font-size: 11px;
+  color: #B0ABA5;
+}
+
+/* ─── Profile Modal ──────────────────────────────────────────────────────── */
+.profileModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 200ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.profileModalCard {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+  width: 360px;
+  overflow: hidden;
+  animation: slideUp 250ms ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.profileModalHeader {
+  padding: 36px 28px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(160deg, #F0EDE7 0%, #fff 100%);
+  border-bottom: 1px solid #EDE9E2;
+}
+
+.profileModalAvatar {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+.profileModalName {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1A1A18;
+  text-align: center;
+}
+
+.profileModalRole {
+  font-size: 13px;
+  color: #9A9590;
+  background: #F0EDE7;
+  padding: 4px 16px;
+  border-radius: 20px;
+}
+
+.profileModalBody {
+  padding: 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.profileModalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #F7F4EF;
+}
+
+.profileModalRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.profileModalRowLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: #9A9590;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.profileModalRowValue {
+  font-size: 14px;
+  color: #1A1A18;
+  font-weight: 500;
+}
+
+.profileModalClose {
+  width: 100%;
+  padding: 14px;
+  background: #F7F4EF;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5A5750;
+  cursor: pointer;
+  border-top: 1px solid #EDE9E2;
+  transition: background 0.15s;
+}
+
+.profileModalClose:hover {
+  background: #EDE9E1;
+}
+
+.deceasedBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #F7F4EF;
+  font-size: 12px;
+  color: #9A9590;
+  font-style: italic;
+  border-bottom: 1px solid #EDE9E2;
+}
+
+/* ─── Dark mode ──────────────────────────────────────────────────────────── */
+[data-theme="dark"] .page {
+  background: #111410;
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .headerLeft h1 { color: #EDE9E1; }
+[data-theme="dark"] .headerLeft p  { color: #6A6A62; }
+
+[data-theme="dark"] .themeBtn {
+  background: #1E2219;
+  border-color: #2E3428;
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .statCard,
+[data-theme="dark"] .card {
+  background: #1E2219;
+  border-color: #2E3428;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .statValue,
+[data-theme="dark"] .cardTitle,
+[data-theme="dark"] .treeNodeName,
+[data-theme="dark"] .announcementAuthor,
+[data-theme="dark"] .announcementTitle,
+[data-theme="dark"] .eventTitle,
+[data-theme="dark"] .wallText,
+[data-theme="dark"] .profileModalName { color: #EDE9E1; }
+
+[data-theme="dark"] .statLabel,
+[data-theme="dark"] .treeNodeRole,
+[data-theme="dark"] .announcementPreview,
+[data-theme="dark"] .announcementTime,
+[data-theme="dark"] .announcementReplies,
+[data-theme="dark"] .eventDay,
+[data-theme="dark"] .memberCount,
+[data-theme="dark"] .memoryCount,
+[data-theme="dark"] .wallAuthor,
+[data-theme="dark"] .wallTime,
+[data-theme="dark"] .wallReactions { color: #6A6A62; }
+
+[data-theme="dark"] .cardHeader { border-color: #2E3428; }
+
+[data-theme="dark"] .announcementItem:hover,
+[data-theme="dark"] .eventItem:hover,
+[data-theme="dark"] .wallItem:hover,
+[data-theme="dark"] .memoryItem:hover { background: #252B20; }
+
+[data-theme="dark"] .announcementItem,
+[data-theme="dark"] .wallItem { border-color: #262C21; }
+
+[data-theme="dark"] .memoryItem {
+  background: #191C17;
+  border-color: #2E3428;
+}
+
+[data-theme="dark"] .memoryLabel { color: #A8A89E; }
+
+[data-theme="dark"] .memberBar { background: #191C17; border-color: #2E3428; }
+
+[data-theme="dark"] .miniAvatar { border-color: #1E2219; }
+
+[data-theme="dark"] .deceasedTag { background: #252B20; }
+
+[data-theme="dark"] .treeNodeAvatar { border-color: #1E2219; }
+
+[data-theme="dark"] .spouseConnector::after { background: #1E2219; }
+
+[data-theme="dark"] .profileModalCard { background: #1E2219; }
+[data-theme="dark"] .profileModalHeader {
+  background: linear-gradient(160deg, #191C17 0%, #1E2219 100%);
+  border-color: #2E3428;
+}
+[data-theme="dark"] .profileModalRole { background: #252B20; color: #6A6A62; }
+[data-theme="dark"] .profileModalRow { border-color: #252B20; }
+[data-theme="dark"] .profileModalRowLabel { color: #6A6A62; }
+[data-theme="dark"] .profileModalRowValue { color: #EDE9E1; }
+[data-theme="dark"] .profileModalClose { background: #191C17; border-color: #2E3428; color: #A8A89E; }
+[data-theme="dark"] .profileModalClose:hover { background: #252B20; }
+[data-theme="dark"] .deceasedBanner { background: #191C17; border-color: #2E3428; }
+
+[data-theme="dark"] .vConnector,
+[data-theme="dark"] .hConnectorBar { background: #2E3428; }
+
+[data-theme="dark"] .treeNodeGroup::before { background: #2E3428; }
+
+[data-theme="dark"] .spouseConnector {
+  background: linear-gradient(90deg, #2E3428, #C9A84C55, #2E3428);
+}

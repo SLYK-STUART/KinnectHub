@@ -1,0 +1,17 @@
+.bottomNav {
+  display: flex;
+
+  justify-content: space-around;
+
+  padding: 1rem;
+
+  border-top: 1px solid #374151;
+
+  background-color: var(--bg-secondary);
+}
+
+@media (min-width: 768px) {
+  .bottomNav {
+    display: none;
+  }
+}

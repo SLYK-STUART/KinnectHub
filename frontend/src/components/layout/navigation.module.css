@@ -1,0 +1,17 @@
+.link {
+  color: var(--text-secondary);
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  transition: var(--transition);
+}
+
+.link:hover {
+  color: var(--text-primary);
+}
+
+.active {
+  color: white;
+}

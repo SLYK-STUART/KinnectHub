@@ -1,0 +1,27 @@
+.sidebar {
+  width: 240px;
+
+  background-color: var(--bg-secondary);
+
+  padding: 1.5rem;
+
+  display: none;
+
+  border-right: 1px solid #374151;
+}
+
+.nav {
+  margin-top: 2rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    display: block;
+  }
+}

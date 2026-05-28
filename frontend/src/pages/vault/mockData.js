@@ -1,0 +1,102 @@
+export const mockVaultCategories = [
+  {
+    id: 'v1',
+    name: 'Identity Documents',
+    type: 'identity',
+    emoji: '🪪',
+    createdBy: 'Robert Nakimera',
+    createdByInitials: 'RN',
+    createdByColor: '#2D5A3D',
+    docCount: 6,
+    passcode: '1234', // mock — in real app this is hashed
+    lastUpdated: '2 days ago',
+  },
+  {
+    id: 'v2',
+    name: 'Legal & Property',
+    type: 'legal',
+    emoji: '⚖️',
+    createdBy: 'Robert Nakimera',
+    createdByInitials: 'RN',
+    createdByColor: '#2D5A3D',
+    docCount: 4,
+    passcode: '1234',
+    lastUpdated: '1 week ago',
+  },
+  {
+    id: 'v3',
+    name: 'Medical Records',
+    type: 'medical',
+    emoji: '🏥',
+    createdBy: 'Grace Nakimera',
+    createdByInitials: 'GN',
+    createdByColor: '#5A3D6E',
+    docCount: 9,
+    passcode: '1234',
+    lastUpdated: '3 days ago',
+  },
+  {
+    id: 'v4',
+    name: 'Academic Certificates',
+    type: 'academic',
+    emoji: '🎓',
+    createdBy: 'David Nakimera',
+    createdByInitials: 'DN',
+    createdByColor: '#3D5A8A',
+    docCount: 12,
+    passcode: '1234',
+    lastUpdated: 'Yesterday',
+  },
+  {
+    id: 'v5',
+    name: 'Other Documents',
+    type: 'other',
+    emoji: '📁',
+    createdBy: 'Sarah Nakimera',
+    createdByInitials: 'SN',
+    createdByColor: '#8A5A3D',
+    docCount: 3,
+    passcode: '1234',
+    lastUpdated: '5 days ago',
+  },
+];
+
+export const mockDocuments = {
+  v1: [
+    { id: 'd1', name: "Robert's National ID",     type: 'pdf',   size: '1.2 MB', uploadedBy: 'Robert Nakimera', uploadedByInitials: 'RN', uploadedByColor: '#2D5A3D', date: 'Jan 12, 2025' },
+    { id: 'd2', name: "Grace's National ID",      type: 'pdf',   size: '1.1 MB', uploadedBy: 'Grace Nakimera',  uploadedByInitials: 'GN', uploadedByColor: '#5A3D6E', date: 'Jan 12, 2025' },
+    { id: 'd3', name: "David's Passport",         type: 'pdf',   size: '3.4 MB', uploadedBy: 'David Nakimera',  uploadedByInitials: 'DN', uploadedByColor: '#3D5A8A', date: 'Feb 3, 2025'  },
+    { id: 'd4', name: "Sarah's Birth Certificate",type: 'image', size: '2.1 MB', uploadedBy: 'Sarah Nakimera',  uploadedByInitials: 'SN', uploadedByColor: '#8A5A3D', date: 'Mar 7, 2025'  },
+    { id: 'd5', name: "Paul's Birth Certificate", type: 'image', size: '1.8 MB', uploadedBy: 'Grace Nakimera',  uploadedByInitials: 'GN', uploadedByColor: '#5A3D6E', date: 'Mar 7, 2025'  },
+    { id: 'd6', name: "James's Senior ID",        type: 'pdf',   size: '0.9 MB', uploadedBy: 'Robert Nakimera', uploadedByInitials: 'RN', uploadedByColor: '#2D5A3D', date: 'Apr 1, 2025'  },
+  ],
+  v2: [
+    { id: 'd7',  name: 'Land Title — Kampala Plot', type: 'pdf',  size: '5.2 MB', uploadedBy: 'Robert Nakimera', uploadedByInitials: 'RN', uploadedByColor: '#2D5A3D', date: 'Dec 20, 2024' },
+    { id: 'd8',  name: "Father's Will (Draft)",     type: 'pdf',  size: '2.8 MB', uploadedBy: 'Robert Nakimera', uploadedByInitials: 'RN', uploadedByColor: '#2D5A3D', date: 'Nov 5, 2024'  },
+    { id: 'd9',  name: 'Vehicle Logbook',           type: 'pdf',  size: '1.5 MB', uploadedBy: 'Grace Nakimera',  uploadedByInitials: 'GN', uploadedByColor: '#5A3D6E', date: 'Jan 30, 2025' },
+    { id: 'd10', name: 'Rental Agreement 2025',     type: 'doc',  size: '0.7 MB', uploadedBy: 'Robert Nakimera', uploadedByInitials: 'RN', uploadedByColor: '#2D5A3D', date: 'Feb 14, 2025' },
+  ],
+  v3: [
+    { id: 'd11', name: "Robert's Blood Test Results", type: 'pdf',  size: '1.1 MB', uploadedBy: 'Grace Nakimera', uploadedByInitials: 'GN', uploadedByColor: '#5A3D6E', date: 'Mar 2, 2025'  },
+    { id: 'd12', name: "Grace's Allergy Report",      type: 'pdf',  size: '0.8 MB', uploadedBy: 'Grace Nakimera', uploadedByInitials: 'GN', uploadedByColor: '#5A3D6E', date: 'Feb 18, 2025' },
+    { id: 'd13', name: "James's Cardiology Report",   type: 'pdf',  size: '2.3 MB', uploadedBy: 'Robert Nakimera',uploadedByInitials: 'RN', uploadedByColor: '#2D5A3D', date: 'Jan 9, 2025'  },
+  ],
+  v4: [
+    { id: 'd14', name: "David's Degree Certificate",  type: 'image', size: '4.1 MB', uploadedBy: 'David Nakimera', uploadedByInitials: 'DN', uploadedByColor: '#3D5A8A', date: 'May 20, 2024' },
+    { id: 'd15', name: "Sarah's A-Level Certificate", type: 'image', size: '3.8 MB', uploadedBy: 'Sarah Nakimera', uploadedByInitials: 'SN', uploadedByColor: '#8A5A3D', date: 'Nov 1, 2024'  },
+    { id: 'd16', name: "Paul's O-Level Certificate",  type: 'image', size: '3.5 MB', uploadedBy: 'Paul Nakimera',  uploadedByInitials: 'PN', uploadedByColor: '#3D7A6E', date: 'Nov 1, 2024'  },
+  ],
+  v5: [
+    { id: 'd17', name: 'Family Insurance Policy',  type: 'pdf', size: '2.2 MB', uploadedBy: 'Sarah Nakimera', uploadedByInitials: 'SN', uploadedByColor: '#8A5A3D', date: 'Apr 10, 2025' },
+    { id: 'd18', name: 'Electricity Bill Archive', type: 'pdf', size: '1.0 MB', uploadedBy: 'Sarah Nakimera', uploadedByInitials: 'SN', uploadedByColor: '#8A5A3D', date: 'Apr 12, 2025' },
+    { id: 'd19', name: 'School Fee Receipts 2025', type: 'doc', size: '0.6 MB', uploadedBy: 'Grace Nakimera', uploadedByInitials: 'GN', uploadedByColor: '#5A3D6E', date: 'Jan 28, 2025' },
+  ],
+};
+
+export const VAULT_TYPE_COLORS = {
+  identity: { bg: 'rgba(61,90,138,0.08)',  border: 'rgba(61,90,138,0.2)',  text: '#3D5A8A' },
+  legal:    { bg: 'rgba(45,90,61,0.08)',   border: 'rgba(45,90,61,0.2)',   text: '#2D5A3D' },
+  medical:  { bg: 'rgba(192,57,43,0.07)',  border: 'rgba(192,57,43,0.18)', text: '#C0392B' },
+  academic: { bg: 'rgba(201,168,76,0.10)', border: 'rgba(201,168,76,0.25)',text: '#A07C20' },
+  other:    { bg: 'rgba(90,87,80,0.07)',   border: 'rgba(90,87,80,0.18)',  text: '#5A5750' },
+};

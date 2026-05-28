@@ -1,0 +1,1031 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Page ───────────────────────────────────────────────────────────────── */
+.page {
+  padding: 28px 32px;
+  min-height: 100vh;
+  background: #F7F4EF;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.headerLeft h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1A1A18;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.headerLeft p {
+  font-size: 13px;
+  color: #9A9590;
+  margin: 0;
+}
+
+/* ─── SOS Button (header) ────────────────────────────────────────────────── */
+.sosHeaderBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #C0392B, #E74C3C);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(192,57,43,0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.sosHeaderBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.sosHeaderBtn:hover::before { opacity: 1; }
+
+.sosHeaderBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(192,57,43,0.4);
+}
+
+.sosHeaderBtn:active {
+  transform: translateY(0);
+}
+
+.sosBtnIcon {
+  font-size: 20px;
+  animation: sosPulse 2s ease-in-out infinite;
+}
+
+@keyframes sosPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.2); }
+}
+
+/* ─── Main grid ──────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ─── Card base ──────────────────────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #F0EDE7;
+}
+
+.cardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A18;
+}
+
+.cardAction {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2D5A3D;
+  background: rgba(45,90,61,0.07);
+  border: none;
+  border-radius: 20px;
+  padding: 4px 14px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.15s;
+}
+
+.cardAction:hover { background: rgba(45,90,61,0.14); }
+
+/* ─── Map Panel ──────────────────────────────────────────────────────────── */
+.mapWrap {
+  position: relative;
+  height: 340px;
+  background: #E8F0E8;
+  overflow: hidden;
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Map overlay pins */
+.mapOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.mapPin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: all;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.mapPin:hover {
+  transform: translate(-50%, -100%) scale(1.1);
+  z-index: 10;
+}
+
+.mapPinAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.mapPinTail {
+  width: 2px;
+  height: 10px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.mapPinDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.mapPinTooltip {
+  position: absolute;
+  top: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1A1A18;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.mapPin:hover .mapPinTooltip {
+  opacity: 1;
+}
+
+/* Map legend */
+.mapLegend {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.mapLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #5A5750;
+}
+
+.mapLegendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* My location button */
+.myLocationBtn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #2D5A3D;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.15s;
+}
+
+.myLocationBtn:hover {
+  background: #F7F4EF;
+  transform: translateY(-1px);
+}
+
+/* ─── Family location list ───────────────────────────────────────────────── */
+.locationList {
+  display: flex;
+  flex-direction: column;
+}
+
+.locationItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #F0EDE7;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.locationItem:last-child { border-bottom: none; }
+.locationItem:hover      { background: #F7F4EF; }
+
+.locationAvatar {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.locationAvatarImg {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.onlineDot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #27AE60;
+  border: 2px solid #fff;
+}
+
+.locationInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.locationName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A18;
+  margin-bottom: 2px;
+}
+
+.locationRole {
+  font-size: 11px;
+  color: #9A9590;
+}
+
+.locationAddress {
+  font-size: 12px;
+  color: #5A5750;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.locationMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.locationTime {
+  font-size: 11px;
+  color: #9A9590;
+}
+
+.viewOnMapBtn {
+  font-size: 10px;
+  font-weight: 500;
+  color: #2D5A3D;
+  background: rgba(45,90,61,0.07);
+  border: none;
+  border-radius: 20px;
+  padding: 3px 10px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.15s;
+}
+
+.viewOnMapBtn:hover { background: rgba(45,90,61,0.14); }
+
+/* ─── Right column ───────────────────────────────────────────────────────── */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ─── My Location Card ───────────────────────────────────────────────────── */
+.myLocationCard {
+  background: linear-gradient(135deg, #1C3028, #2D5A3D);
+  border-radius: 16px;
+  padding: 24px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.myLocationCard::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(201,168,76,0.12);
+}
+
+.myLocationCard::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+
+.myLocationTitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.myLocationValue {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.myLocationCoords {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  font-family: monospace;
+  margin-bottom: 20px;
+}
+
+.shareLocationBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  backdrop-filter: blur(4px);
+  position: relative;
+  z-index: 1;
+}
+
+.shareLocationBtn:hover {
+  background: rgba(255,255,255,0.22);
+}
+
+.shareLocationBtn.active {
+  background: rgba(39,174,96,0.3);
+  border-color: rgba(39,174,96,0.5);
+}
+
+.locationSharedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  position: relative;
+  z-index: 1;
+}
+
+.locationPulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #27AE60;
+  animation: livePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1);   }
+  50%       { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* ─── SOS History ────────────────────────────────────────────────────────── */
+.sosHistoryList {
+  display: flex;
+  flex-direction: column;
+}
+
+.sosHistoryItem {
+  padding: 16px 20px;
+  border-bottom: 1px solid #F0EDE7;
+}
+
+.sosHistoryItem:last-child { border-bottom: none; }
+
+.sosHistoryTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.sosHistoryAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.sosHistoryInfo { flex: 1; min-width: 0; }
+
+.sosHistoryName {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1A18;
+}
+
+.sosHistoryTime {
+  font-size: 11px;
+  color: #9A9590;
+  margin-top: 1px;
+}
+
+.sosStatusBadge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sosStatusBadge.resolved {
+  background: rgba(39,174,96,0.1);
+  color: #27AE60;
+}
+
+.sosStatusBadge.active {
+  background: rgba(192,57,43,0.1);
+  color: #C0392B;
+  animation: badgePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+.sosHistoryMessage {
+  font-size: 12px;
+  color: #5A5750;
+  background: #F7F4EF;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.sosHistoryLocation {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #9A9590;
+  margin-bottom: 10px;
+}
+
+.safeResponsesRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.safeResponsesLabel {
+  font-size: 11px;
+  color: #9A9590;
+}
+
+.safeAvatarStack {
+  display: flex;
+  align-items: center;
+}
+
+.safeAvatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: #fff;
+  margin-left: -6px;
+}
+
+.safeAvatar:first-child { margin-left: 0; }
+
+/* ─── SOS Trigger Modal ──────────────────────────────────────────────────── */
+.sosModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 200ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.sosModal {
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+  width: 420px;
+  overflow: hidden;
+  animation: slideUp 280ms ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(32px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.sosModalTop {
+  background: linear-gradient(160deg, #8B1A12, #C0392B);
+  padding: 40px 32px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sosModalTop::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+
+.sosModalTop::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.sosModalIcon {
+  font-size: 52px;
+  display: block;
+  margin-bottom: 14px;
+  animation: sosPulse 1.2s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.sosModalTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.sosModalSub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  line-height: 1.5;
+}
+
+.sosModalBody {
+  padding: 28px 32px;
+}
+
+.sosModalLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #5A5750;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 8px;
+}
+
+.sosMessageInput {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #DDD8CE;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #1A1A18;
+  resize: none;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+  background: #F7F4EF;
+  height: 80px;
+}
+
+.sosMessageInput:focus {
+  border-color: #C0392B;
+  box-shadow: 0 0 0 3px rgba(192,57,43,0.08);
+  background: #fff;
+}
+
+.sosMessageInput::placeholder { color: #B0ABA5; }
+
+.sosLocationDetect {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: #F7F4EF;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #5A5750;
+  border: 1px solid #EDE9E2;
+}
+
+.sosLocationIcon { font-size: 16px; }
+
+.sosModalFooter {
+  display: flex;
+  gap: 12px;
+  padding: 0 32px 32px;
+}
+
+.sosCancelBtn {
+  flex: 1;
+  padding: 13px;
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5A5750;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sosCancelBtn:hover { background: #F7F4EF; }
+
+.sosTriggerBtn {
+  flex: 2;
+  padding: 13px;
+  background: linear-gradient(135deg, #C0392B, #E74C3C);
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(192,57,43,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sosTriggerBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(192,57,43,0.45);
+}
+
+/* ─── Active SOS Banner ──────────────────────────────────────────────────── */
+.activeSosBanner {
+  background: linear-gradient(135deg, #8B1A12, #C0392B);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 8px 24px rgba(192,57,43,0.3);
+  animation: bannerPulse 2s ease-in-out infinite;
+}
+
+@keyframes bannerPulse {
+  0%, 100% { box-shadow: 0 8px 24px rgba(192,57,43,0.3); }
+  50%       { box-shadow: 0 8px 32px rgba(192,57,43,0.5); }
+}
+
+.activeSosLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.activeSosIcon {
+  font-size: 28px;
+  animation: sosPulse 1s ease-in-out infinite;
+}
+
+.activeSosText {}
+
+.activeSosTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 3px;
+}
+
+.activeSosSub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+}
+
+.activeSosRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.safeResponseCount {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.cancelSosBtn {
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.cancelSosBtn:hover { background: rgba(255,255,255,0.25); }
+
+/* ─── I'm Safe Modal ─────────────────────────────────────────────────────── */
+.iAmSafeModal {
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+  width: 380px;
+  overflow: hidden;
+  animation: slideUp 280ms ease;
+}
+
+.iAmSafeTop {
+  background: linear-gradient(160deg, #1A5C30, #27AE60);
+  padding: 40px 32px 28px;
+  text-align: center;
+}
+
+.iAmSafeIcon {
+  font-size: 52px;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.iAmSafeTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.iAmSafeSub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.iAmSafeBody {
+  padding: 24px 32px;
+}
+
+.iAmSafeInfo {
+  background: #F7F4EF;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #5A5750;
+  line-height: 1.5;
+  border: 1px solid #EDE9E2;
+  margin-bottom: 20px;
+}
+
+.iAmSafeFooter {
+  display: flex;
+  gap: 12px;
+  padding: 0 32px 28px;
+}
+
+.iAmSafeBtn {
+  flex: 1;
+  padding: 14px;
+  background: linear-gradient(135deg, #1A5C30, #27AE60);
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(39,174,96,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.iAmSafeBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(39,174,96,0.4);
+}
+
+/* ─── Dark mode ──────────────────────────────────────────────────────────── */
+[data-theme="dark"] .page { background: #111410; }
+
+[data-theme="dark"] .headerLeft h1,
+[data-theme="dark"] .locationName,
+[data-theme="dark"] .sosHistoryName,
+[data-theme="dark"] .cardTitle { color: #EDE9E1; }
+
+[data-theme="dark"] .headerLeft p,
+[data-theme="dark"] .locationRole,
+[data-theme="dark"] .locationTime,
+[data-theme="dark"] .sosHistoryTime,
+[data-theme="dark"] .safeResponsesLabel { color: #6A6A62; }
+
+[data-theme="dark"] .card { background: #1E2219; border-color: #2E3428; }
+[data-theme="dark"] .cardHeader { border-color: #2E3428; }
+
+[data-theme="dark"] .locationItem:hover,
+[data-theme="dark"] .sosHistoryItem:hover { background: #252B20; }
+
+[data-theme="dark"] .locationItem,
+[data-theme="dark"] .sosHistoryItem { border-color: #262C21; }
+
+[data-theme="dark"] .locationAddress,
+[data-theme="dark"] .sosHistoryLocation { color: #A8A89E; }
+
+[data-theme="dark"] .sosHistoryMessage { background: #252B20; color: #A8A89E; }
+
+[data-theme="dark"] .mapLegend { background: rgba(30,34,25,0.92); }
+[data-theme="dark"] .mapLegendItem { color: #A8A89E; }
+
+[data-theme="dark"] .myLocationBtn {
+  background: #1E2219;
+  border-color: #2E3428;
+}
+
+[data-theme="dark"] .sosModal,
+[data-theme="dark"] .iAmSafeModal { background: #1E2219; }
+
+[data-theme="dark"] .sosMessageInput {
+  background: #191C17;
+  border-color: #2E3428;
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .sosMessageInput:focus { background: #1E2219; }
+
+[data-theme="dark"] .sosLocationDetect {
+  background: #252B20;
+  border-color: #2E3428;
+  color: #A8A89E;
+}
+
+[data-theme="dark"] .sosCancelBtn {
+  background: #191C17;
+  border-color: #2E3428;
+  color: #A8A89E;
+}
+
+[data-theme="dark"] .sosCancelBtn:hover { background: #252B20; }
+
+[data-theme="dark"] .iAmSafeInfo {
+  background: #252B20;
+  border-color: #2E3428;
+  color: #A8A89E;
+}

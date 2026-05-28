@@ -1,0 +1,744 @@
+/* ─── Fonts ─────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Page ──────────────────────────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  background: #F7F4EF;
+  padding: 28px 32px;
+  box-sizing: border-box;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: #1A1A18;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+
+.headerLeft h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  color: #1A1A18;
+  line-height: 1.2;
+}
+
+.headerLeft p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: #9A9590;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.primaryBtn {
+  border: none;
+  background: #2D5A3D;
+  color: #fff;
+  border-radius: 22px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.primaryBtn:hover {
+  background: #244B32;
+}
+
+.themeBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #DDD8CE;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.themeBtn:hover {
+  background: #EDE9E1;
+  transform: scale(1.05);
+}
+
+/* ─── Hero Strip ───────────────────────────────────────────────────────── */
+.heroStrip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.heroCard {
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  transition: all 0.18s ease;
+}
+
+.heroCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.07);
+}
+
+.heroIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(45,90,61,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.heroValue {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1A1A18;
+  line-height: 1;
+}
+
+.heroLabel {
+  font-size: 12px;
+  color: #9A9590;
+  margin-top: 4px;
+}
+
+/* ─── Layout ───────────────────────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+.leftCol,
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* ─── Card ─────────────────────────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #F0EDE7;
+}
+
+.cardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A18;
+}
+
+.cardAction {
+  border: none;
+  background: rgba(45,90,61,0.08);
+  color: #2D5A3D;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.cardAction:hover {
+  background: rgba(45,90,61,0.14);
+}
+
+/* ─── Tabs ─────────────────────────────────────────────────────────────── */
+.tabBar {
+  display: flex;
+  gap: 2px;
+  padding: 12px 16px 0;
+  border-bottom: 1px solid #F0EDE7;
+}
+
+.tab,
+.tabActive {
+  border: none;
+  background: none;
+  padding: 9px 16px;
+  border-radius: 10px 10px 0 0;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tab {
+  color: #9A9590;
+}
+
+.tab:hover {
+  color: #5A5750;
+}
+
+.tabActive {
+  color: #2D5A3D;
+  font-weight: 600;
+  border-bottom: 2px solid #2D5A3D;
+}
+
+/* ─── Search ───────────────────────────────────────────────────────────── */
+.searchRow {
+  padding: 16px 20px;
+  border-bottom: 1px solid #F0EDE7;
+}
+
+.searchInput {
+  width: 100%;
+  background: #F7F4EF;
+  border: 1px solid #EDE9E2;
+  border-radius: 22px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  color: #1A1A18;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.searchInput:focus {
+  border-color: #2D5A3D;
+}
+
+.searchInput::placeholder {
+  color: #B0ABA5;
+}
+
+/* ─── Prayer Cards ─────────────────────────────────────────────────────── */
+.prayerList {
+  display: flex;
+  flex-direction: column;
+}
+
+.prayerCard {
+  padding: 20px;
+  border-bottom: 1px solid #F0EDE7;
+  transition: background 0.15s ease;
+}
+
+.prayerCard:last-child {
+  border-bottom: none;
+}
+
+.prayerCard:hover {
+  background: #FAFAF8;
+}
+
+.prayerTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.prayerIdentity {
+  display: flex;
+  gap: 12px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.authorRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.author {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1A1A18;
+}
+
+.metaRow {
+  margin-top: 2px;
+  font-size: 11px;
+  color: #9A9590;
+}
+
+.urgentBadge {
+  background: #C0392B;
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.viewBtn {
+  border: none;
+  background: #F7F4EF;
+  color: #5A5750;
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.15s;
+}
+
+.viewBtn:hover {
+  background: #EDE9E1;
+}
+
+.prayerTitle {
+  margin-top: 16px;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1A1A18;
+  line-height: 1.3;
+}
+
+.prayerMessage {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #5A5750;
+  line-height: 1.8;
+}
+
+.prayerFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.reactionRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  color: #9A9590;
+}
+
+.prayBtn {
+  border: none;
+  background: rgba(45,90,61,0.08);
+  color: #2D5A3D;
+  padding: 8px 14px;
+  border-radius: 22px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s;
+}
+
+.prayBtn:hover {
+  background: rgba(45,90,61,0.15);
+}
+
+/* ─── Gratitude Grid ───────────────────────────────────────────────────── */
+.gratitudeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 18px;
+}
+
+.gratitudeCard {
+  background: #FAFAF8;
+  border: 1px solid #F0EDE7;
+  border-radius: 16px;
+  padding: 18px;
+  transition: all 0.18s ease;
+}
+
+.gratitudeCard:hover {
+  transform: translateY(-2px);
+  background: #F7F4EF;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+}
+
+.gratitudeEmoji {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.gratitudeTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1A1A18;
+  margin-bottom: 8px;
+}
+
+.gratitudeText {
+  font-size: 13px;
+  color: #5A5750;
+  line-height: 1.7;
+}
+
+.gratitudeAuthor {
+  margin-top: 14px;
+  font-size: 11px;
+  color: #9A9590;
+}
+
+/* ─── Verse Box ────────────────────────────────────────────────────────── */
+.verseBox {
+  padding: 28px 22px;
+  text-align: center;
+}
+
+.verseMark {
+  font-size: 42px;
+  line-height: 1;
+  color: rgba(45,90,61,0.2);
+  font-family: 'Playfair Display', serif;
+}
+
+.verseText {
+  margin-top: 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #1A1A18;
+}
+
+.verseRef {
+  margin-top: 14px;
+  font-size: 12px;
+  color: #9A9590;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ─── Categories ───────────────────────────────────────────────────────── */
+.categoryList {
+  padding: 10px 14px 16px;
+}
+
+.categoryItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #5A5750;
+  transition: background 0.15s;
+}
+
+.categoryItem:hover {
+  background: #F7F4EF;
+}
+
+/* ─── Prayer Circle ────────────────────────────────────────────────────── */
+.circleMembers {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px 16px;
+}
+
+.circleMember {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 12px;
+  transition: background 0.15s;
+}
+
+.circleMember:hover {
+  background: #F7F4EF;
+}
+
+.circleAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.circleName {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1A18;
+}
+
+.circleMeta {
+  font-size: 11px;
+  color: #9A9590;
+  margin-top: 2px;
+}
+
+/* ─── Modal ────────────────────────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  width: 500px;
+  max-width: 92vw;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+}
+
+.modalHeader {
+  padding: 34px 28px 24px;
+  background: linear-gradient(160deg, #F0EDE7 0%, #fff 100%);
+  border-bottom: 1px solid #EDE9E2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #F7F4EF;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.closeBtn:hover {
+  background: #EDE9E1;
+}
+
+.modalAvatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.modalTitle {
+  margin-top: 16px;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1A1A18;
+  text-align: center;
+}
+
+.modalMeta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #9A9590;
+}
+
+.modalBody {
+  padding: 28px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #5A5750;
+}
+
+.modalFooter {
+  display: flex;
+  gap: 10px;
+  padding: 0 28px 28px;
+}
+
+.secondaryBtn,
+.primaryBtnModal {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.secondaryBtn {
+  border: 1px solid #EDE9E2;
+  background: #fff;
+  color: #5A5750;
+}
+
+.secondaryBtn:hover {
+  background: #F7F4EF;
+}
+
+.primaryBtnModal {
+  border: none;
+  background: #2D5A3D;
+  color: #fff;
+}
+
+.primaryBtnModal:hover {
+  background: #244B32;
+}
+
+/* ─── Dark Mode ────────────────────────────────────────────────────────── */
+[data-theme="dark"] .page {
+  background: #111410;
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .headerLeft h1,
+[data-theme="dark"] .heroValue,
+[data-theme="dark"] .cardTitle,
+[data-theme="dark"] .author,
+[data-theme="dark"] .prayerTitle,
+[data-theme="dark"] .gratitudeTitle,
+[data-theme="dark"] .verseText,
+[data-theme="dark"] .circleName,
+[data-theme="dark"] .modalTitle {
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .headerLeft p,
+[data-theme="dark"] .heroLabel,
+[data-theme="dark"] .metaRow,
+[data-theme="dark"] .gratitudeAuthor,
+[data-theme="dark"] .circleMeta,
+[data-theme="dark"] .modalMeta {
+  color: #6A6A62;
+}
+
+[data-theme="dark"] .themeBtn {
+  background: #1E2219;
+  border-color: #2E3428;
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .heroCard,
+[data-theme="dark"] .card,
+[data-theme="dark"] .modal {
+  background: #1E2219;
+  border-color: #2E3428;
+}
+
+[data-theme="dark"] .cardHeader,
+[data-theme="dark"] .tabBar,
+[data-theme="dark"] .searchRow,
+[data-theme="dark"] .modalHeader {
+  border-color: #2E3428;
+}
+
+[data-theme="dark"] .tab {
+  color: #6A6A62;
+}
+
+[data-theme="dark"] .tabActive {
+  color: #7DC49A;
+  border-color: #2D5A3D;
+}
+
+[data-theme="dark"] .searchInput {
+  background: #191C17;
+  border-color: #2E3428;
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .prayerCard {
+  border-color: #252B20;
+}
+
+[data-theme="dark"] .prayerCard:hover,
+[data-theme="dark"] .circleMember:hover,
+[data-theme="dark"] .categoryItem:hover {
+  background: #252B20;
+}
+
+[data-theme="dark"] .prayerMessage,
+[data-theme="dark"] .gratitudeText {
+  color: #A8A89E;
+}
+
+[data-theme="dark"] .viewBtn,
+[data-theme="dark"] .secondaryBtn,
+[data-theme="dark"] .closeBtn {
+  background: #252B20;
+  color: #A8A89E;
+  border-color: #2E3428;
+}
+
+[data-theme="dark"] .gratitudeCard {
+  background: #191C17;
+  border-color: #2E3428;
+}
+
+[data-theme="dark"] .modalHeader {
+  background: linear-gradient(160deg, #191C17 0%, #1E2219 100%);
+}
+
+[data-theme="dark"] .modalBody {
+  color: #A8A89E;
+}

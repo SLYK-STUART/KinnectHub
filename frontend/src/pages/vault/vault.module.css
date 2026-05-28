@@ -1,0 +1,967 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Page ───────────────────────────────────────────────────────────────── */
+.page {
+  padding: 28px 32px;
+  min-height: 100vh;
+  background: #F7F4EF;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.headerLeft h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1A1A18;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.headerLeft p {
+  font-size: 13px;
+  color: #9A9590;
+  margin: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.createBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #2D5A3D;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 8px rgba(45,90,61,0.25);
+}
+
+.createBtn:hover {
+  background: #3D7A54;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(45,90,61,0.3);
+}
+
+/* ─── Vault Grid ─────────────────────────────────────────────────────────── */
+.vaultGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ─── Vault Card ─────────────────────────────────────────────────────────── */
+.vaultCard {
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 16px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.vaultCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.vaultCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+  border-color: #DDD8CE;
+}
+
+.vaultCard:hover::before {
+  opacity: 1;
+}
+
+.vaultCardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.vaultEmoji {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.lockIcon {
+  font-size: 18px;
+  opacity: 0.35;
+}
+
+.vaultName {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1A1A18;
+  margin: 0 0 6px;
+}
+
+.vaultMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.vaultDocCount {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #5A5750;
+  font-weight: 500;
+}
+
+.vaultUpdated {
+  font-size: 12px;
+  color: #9A9590;
+}
+
+.vaultFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid #F0EDE7;
+}
+
+.vaultCreator {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.creatorAvatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.creatorName {
+  font-size: 12px;
+  color: #9A9590;
+}
+
+.typeBadge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: capitalize;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Passcode Modal ─────────────────────────────────────────────────────── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 200ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.passcodeModal {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+  width: 380px;
+  overflow: hidden;
+  animation: slideUp 250ms ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.passcodeModalHeader {
+  padding: 36px 32px 24px;
+  text-align: center;
+  background: linear-gradient(160deg, #F0EDE7 0%, #fff 100%);
+  border-bottom: 1px solid #EDE9E2;
+}
+
+.passcodeVaultEmoji {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 14px;
+}
+
+.passcodeModalTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1A1A18;
+  margin: 0 0 6px;
+}
+
+.passcodeModalSub {
+  font-size: 13px;
+  color: #9A9590;
+  margin: 0;
+}
+
+.passcodeModalBody {
+  padding: 28px 32px 32px;
+}
+
+.passcodeLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #5A5750;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 10px;
+}
+
+.passcodeDots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.passcodeDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #DDD8CE;
+  background: transparent;
+  transition: all 0.15s ease;
+}
+
+.passcodeDot.filled {
+  background: #2D5A3D;
+  border-color: #2D5A3D;
+  transform: scale(1.1);
+}
+
+/* Numpad */
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.numKey {
+  height: 56px;
+  border-radius: 12px;
+  background: #F7F4EF;
+  border: 1px solid #EDE9E2;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #1A1A18;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.numKey:hover {
+  background: #EDE9E1;
+  transform: scale(1.03);
+}
+
+.numKey:active {
+  transform: scale(0.97);
+  background: #DDD8CE;
+}
+
+.numKey.delete {
+  font-size: 18px;
+  color: #9A9590;
+}
+
+.numKey.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.numKey.empty:hover {
+  transform: none;
+}
+
+.passcodeError {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #C0392B;
+  margin-bottom: 12px;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25%      { transform: translateX(-6px); }
+  75%      { transform: translateX(6px); }
+}
+
+.passcodeActions {
+  display: flex;
+  gap: 10px;
+}
+
+.cancelBtn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #EDE9E2;
+  background: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5A5750;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cancelBtn:hover {
+  background: #F7F4EF;
+}
+
+/* ─── Vault Interior (document list view) ────────────────────────────────── */
+.interiorPage {
+  padding: 28px 32px;
+  min-height: 100vh;
+  background: #F7F4EF;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #5A5750;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 0;
+  margin-bottom: 20px;
+  transition: color 0.15s;
+}
+
+.backBtn:hover {
+  color: #1A1A18;
+}
+
+.interiorHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.interiorHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.interiorEmoji {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.interiorTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1A1A18;
+  margin: 0 0 4px;
+}
+
+.interiorMeta {
+  font-size: 12px;
+  color: #9A9590;
+}
+
+.interiorActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.uploadBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #2D5A3D;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 8px rgba(45,90,61,0.25);
+}
+
+.uploadBtn:hover {
+  background: #3D7A54;
+  transform: translateY(-1px);
+}
+
+.lockBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: #fff;
+  color: #5A5750;
+  border: 1px solid #EDE9E2;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lockBtn:hover {
+  background: #F7F4EF;
+  color: #1A1A18;
+}
+
+/* Document list */
+.docList {
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.docListHeader {
+  display: grid;
+  grid-template-columns: 1fr 120px 140px 80px;
+  gap: 16px;
+  padding: 12px 20px;
+  background: #F7F4EF;
+  border-bottom: 1px solid #EDE9E2;
+}
+
+.docListHeaderCell {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9A9590;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.docItem {
+  display: grid;
+  grid-template-columns: 1fr 120px 140px 80px;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #F0EDE7;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+
+.docItem:last-child {
+  border-bottom: none;
+}
+
+.docItem:hover {
+  background: #F7F4EF;
+}
+
+.docItemName {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.docTypeIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.docTypeIcon.pdf   { background: rgba(192,57,43,0.08); }
+.docTypeIcon.image { background: rgba(61,90,138,0.08); }
+.docTypeIcon.doc   { background: rgba(45,90,61,0.08);  }
+
+.docName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A18;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.docSize {
+  font-size: 13px;
+  color: #9A9590;
+}
+
+.docUploader {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.docUploaderAvatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.docUploaderName {
+  font-size: 12px;
+  color: #5A5750;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.docDate {
+  font-size: 12px;
+  color: #9A9590;
+}
+
+.docActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.docActionBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  color: #9A9590;
+}
+
+.docActionBtn:hover {
+  background: #F0EDE7;
+  color: #1A1A18;
+}
+
+.docActionBtn.danger:hover {
+  background: rgba(192,57,43,0.08);
+  color: #C0392B;
+}
+
+/* Empty state */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 12px;
+}
+
+.emptyEmoji {
+  font-size: 40px;
+  opacity: 0.4;
+}
+
+.emptyText {
+  font-size: 14px;
+  color: #9A9590;
+}
+
+/* ─── Create Vault Modal ──────────────────────────────────────────────────── */
+.createModal {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+  width: 440px;
+  overflow: hidden;
+  animation: slideUp 250ms ease;
+}
+
+.createModalHeader {
+  padding: 28px 32px 20px;
+  border-bottom: 1px solid #EDE9E2;
+  background: linear-gradient(160deg, #F0EDE7 0%, #fff 100%);
+}
+
+.createModalTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1A1A18;
+  margin: 0 0 4px;
+}
+
+.createModalSub {
+  font-size: 13px;
+  color: #9A9590;
+  margin: 0;
+}
+
+.createModalBody {
+  padding: 24px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.formLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #5A5750;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.formInput {
+  padding: 11px 14px;
+  border: 1px solid #DDD8CE;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #1A1A18;
+  background: #fff;
+  transition: border-color 0.15s;
+  outline: none;
+}
+
+.formInput:focus {
+  border-color: #2D5A3D;
+  box-shadow: 0 0 0 3px rgba(45,90,61,0.08);
+}
+
+.formInput::placeholder {
+  color: #B0ABA5;
+}
+
+.typeGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.typeOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 6px;
+  border-radius: 10px;
+  border: 1.5px solid #EDE9E2;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: #fff;
+}
+
+.typeOption:hover {
+  border-color: #DDD8CE;
+  background: #F7F4EF;
+}
+
+.typeOption.selected {
+  border-color: #2D5A3D;
+  background: rgba(45,90,61,0.06);
+}
+
+.typeOptionEmoji { font-size: 20px; }
+
+.typeOptionLabel {
+  font-size: 10px;
+  font-weight: 500;
+  color: #5A5750;
+  text-align: center;
+}
+
+.passcodeHint {
+  font-size: 11px;
+  color: #9A9590;
+  margin-top: 2px;
+}
+
+.createModalFooter {
+  display: flex;
+  gap: 10px;
+  padding: 0 32px 28px;
+}
+
+.submitBtn {
+  flex: 1;
+  padding: 13px;
+  background: #2D5A3D;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 8px rgba(45,90,61,0.25);
+}
+
+.submitBtn:hover {
+  background: #3D7A54;
+}
+
+/* ─── Upload Modal ───────────────────────────────────────────────────────── */
+.uploadModal {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+  width: 420px;
+  overflow: hidden;
+  animation: slideUp 250ms ease;
+}
+
+.uploadModalHeader {
+  padding: 28px 32px 20px;
+  border-bottom: 1px solid #EDE9E2;
+  background: linear-gradient(160deg, #F0EDE7 0%, #fff 100%);
+}
+
+.uploadModalTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1A1A18;
+  margin: 0 0 4px;
+}
+
+.uploadModalSub {
+  font-size: 13px;
+  color: #9A9590;
+  margin: 0;
+}
+
+.uploadModalBody {
+  padding: 24px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.dropZone {
+  border: 2px dashed #DDD8CE;
+  border-radius: 14px;
+  padding: 36px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #F7F4EF;
+}
+
+.dropZone:hover {
+  border-color: #2D5A3D;
+  background: rgba(45,90,61,0.04);
+}
+
+.dropZoneIcon { font-size: 32px; opacity: 0.5; }
+
+.dropZoneText {
+  font-size: 14px;
+  font-weight: 500;
+  color: #5A5750;
+}
+
+.dropZoneSub {
+  font-size: 12px;
+  color: #9A9590;
+}
+
+.uploadModalFooter {
+  display: flex;
+  gap: 10px;
+  padding: 0 32px 28px;
+}
+
+/* ─── Dark mode ──────────────────────────────────────────────────────────── */
+[data-theme="dark"] .page,
+[data-theme="dark"] .interiorPage {
+  background: #111410;
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .headerLeft h1,
+[data-theme="dark"] .interiorTitle,
+[data-theme="dark"] .vaultName,
+[data-theme="dark"] .docName,
+[data-theme="dark"] .passcodeModalTitle,
+[data-theme="dark"] .createModalTitle,
+[data-theme="dark"] .uploadModalTitle { color: #EDE9E1; }
+
+[data-theme="dark"] .headerLeft p,
+[data-theme="dark"] .interiorMeta,
+[data-theme="dark"] .vaultUpdated,
+[data-theme="dark"] .creatorName,
+[data-theme="dark"] .docSize,
+[data-theme="dark"] .docDate,
+[data-theme="dark"] .passcodeModalSub,
+[data-theme="dark"] .createModalSub,
+[data-theme="dark"] .uploadModalSub { color: #6A6A62; }
+
+[data-theme="dark"] .vaultCard,
+[data-theme="dark"] .interiorHeader,
+[data-theme="dark"] .docList,
+[data-theme="dark"] .passcodeModal,
+[data-theme="dark"] .createModal,
+[data-theme="dark"] .uploadModal { background: #1E2219; border-color: #2E3428; }
+
+[data-theme="dark"] .vaultCard:hover { border-color: #3E4438; }
+
+[data-theme="dark"] .vaultFooter { border-color: #2E3428; }
+
+[data-theme="dark"] .docListHeader { background: #191C17; border-color: #2E3428; }
+[data-theme="dark"] .docItem        { border-color: #262C21; }
+[data-theme="dark"] .docItem:hover  { background: #252B20; }
+
+[data-theme="dark"] .docListHeaderCell,
+[data-theme="dark"] .docUploaderName { color: #6A6A62; }
+
+[data-theme="dark"] .docActionBtn:hover { background: #2E3428; color: #EDE9E1; }
+[data-theme="dark"] .docActionBtn.danger:hover { background: rgba(192,57,43,0.15); }
+
+[data-theme="dark"] .numKey { background: #252B20; border-color: #2E3428; color: #EDE9E1; }
+[data-theme="dark"] .numKey:hover { background: #2E3428; }
+
+[data-theme="dark"] .passcodeModalHeader,
+[data-theme="dark"] .createModalHeader,
+[data-theme="dark"] .uploadModalHeader {
+  background: linear-gradient(160deg, #191C17 0%, #1E2219 100%);
+  border-color: #2E3428;
+}
+
+[data-theme="dark"] .passcodeDot { border-color: #2E3428; }
+[data-theme="dark"] .passcodeDot.filled { background: #3D7A54; border-color: #3D7A54; }
+
+[data-theme="dark"] .formInput {
+  background: #191C17;
+  border-color: #2E3428;
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .formInput:focus { border-color: #3D7A54; }
+
+[data-theme="dark"] .typeOption { background: #191C17; border-color: #2E3428; }
+[data-theme="dark"] .typeOption:hover { background: #252B20; }
+[data-theme="dark"] .typeOption.selected { border-color: #3D7A54; background: rgba(61,122,84,0.1); }
+[data-theme="dark"] .typeOptionLabel { color: #A8A89E; }
+
+[data-theme="dark"] .dropZone { background: #191C17; border-color: #2E3428; }
+[data-theme="dark"] .dropZone:hover { border-color: #3D7A54; }
+[data-theme="dark"] .dropZoneText { color: #A8A89E; }
+
+[data-theme="dark"] .cancelBtn,
+[data-theme="dark"] .lockBtn { background: #191C17; border-color: #2E3428; color: #A8A89E; }
+[data-theme="dark"] .cancelBtn:hover,
+[data-theme="dark"] .lockBtn:hover  { background: #252B20; color: #EDE9E1; }
+
+[data-theme="dark"] .backBtn { color: #A8A89E; }
+[data-theme="dark"] .backBtn:hover { color: #EDE9E1; }
+
+[data-theme="dark"] .emptyText { color: #6A6A62; }

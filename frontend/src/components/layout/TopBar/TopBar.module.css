@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Top Bar ────────────────────────────────────────────────────────────── */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #EDE9E2;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+/* ─── Brand ──────────────────────────────────────────────────────────────── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brandMark {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: #2D5A3D;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: -0.5px;
+}
+
+.brandName {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1A1A18;
+  letter-spacing: -0.2px;
+}
+
+/* ─── Right side ─────────────────────────────────────────────────────────── */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.greeting {
+  font-size: 13px;
+  color: #9A9590;
+}
+
+.greeting strong {
+  font-weight: 500;
+  color: #5A5750;
+}
+
+/* ─── Avatar button ──────────────────────────────────────────────────────── */
+.avatarWrap {
+  position: relative;
+}
+
+.avatarBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid #EDE9E2;
+  border-radius: 24px;
+  padding: 4px 10px 4px 4px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.avatarBtn:hover {
+  background: #F7F4EF;
+  border-color: #DDD8CE;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2D5A3D, #3D7A50);
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chevron {
+  font-size: 8px;
+  color: #9A9590;
+  line-height: 1;
+}
+
+/* ─── Dropdown ───────────────────────────────────────────────────────────── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 224px;
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+  overflow: hidden;
+  animation: dropIn 150ms ease;
+  z-index: 200;
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Dropdown header ────────────────────────────────────────────────────── */
+.dropdownHeader {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 16px;
+}
+
+.dropdownAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2D5A3D, #3D7A50);
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dropdownName {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1A18;
+  line-height: 1.3;
+}
+
+.dropdownRole {
+  font-size: 11px;
+  color: #9A9590;
+  margin-top: 2px;
+}
+
+/* ─── Divider ────────────────────────────────────────────────────────────── */
+.dropdownDivider {
+  height: 1px;
+  background: #F0EDE7;
+}
+
+/* ─── Items ──────────────────────────────────────────────────────────────── */
+.dropdownItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  font-size: 13px;
+  font-weight: 400;
+  color: #5A5750;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.12s;
+}
+
+.dropdownItem:hover {
+  background: #F7F4EF;
+  color: #1A1A18;
+}
+
+.dropdownItemIcon {
+  font-size: 15px;
+  width: 18px;
+  text-align: center;
+}
+
+.dropdownItemDanger {
+  color: #C0392B;
+}
+
+.dropdownItemDanger:hover {
+  background: rgba(192,57,43,0.06);
+  color: #C0392B;
+}
+
+/* ─── Dark mode ──────────────────────────────────────────────────────────── */
+[data-theme="dark"] .topBar {
+  background: #1E2219;
+  border-color: #2E3428;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+
+[data-theme="dark"] .brandName { color: #EDE9E1; }
+
+[data-theme="dark"] .greeting       { color: #6A6A62; }
+[data-theme="dark"] .greeting strong { color: #A8A89E; }
+
+[data-theme="dark"] .avatarBtn {
+  border-color: #2E3428;
+}
+
+[data-theme="dark"] .avatarBtn:hover {
+  background: #252B20;
+  border-color: #3A4232;
+}
+
+[data-theme="dark"] .chevron { color: #6A6A62; }
+
+[data-theme="dark"] .dropdown {
+  background: #1E2219;
+  border-color: #2E3428;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .dropdownName  { color: #EDE9E1; }
+[data-theme="dark"] .dropdownRole  { color: #6A6A62; }
+[data-theme="dark"] .dropdownDivider { background: #2E3428; }
+
+[data-theme="dark"] .dropdownItem {
+  color: #A8A89E;
+}
+
+[data-theme="dark"] .dropdownItem:hover {
+  background: #252B20;
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .dropdownItemDanger { color: #E57368; }
+
+[data-theme="dark"] .dropdownItemDanger:hover {
+  background: rgba(229,115,104,0.08);
+  color: #E57368;
+}

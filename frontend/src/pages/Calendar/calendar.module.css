@@ -1,0 +1,619 @@
+/* ─── Fonts ──────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Page ───────────────────────────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  background: #F7F4EF;
+  padding: 28px 32px;
+  box-sizing: border-box;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: #1A1A18;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.headerLeft h1 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1A1A18;
+  line-height: 1.2;
+}
+
+.headerLeft p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: #9A9590;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.themeBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #DDD8CE;
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  color: #5A5750;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.themeBtn:hover {
+  background: #EDE9E1;
+  transform: scale(1.05);
+}
+
+.addBtn {
+  background: #2D5A3D;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.addBtn:hover {
+  background: #234830;
+}
+
+/* ─── Stats Strip ────────────────────────────────────────────────────────── */
+.statsStrip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.statCard {
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.statValue {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  color: #1A1A18;
+}
+
+.statLabel {
+  margin-top: 3px;
+  font-size: 12px;
+  color: #9A9590;
+}
+
+/* ─── Main Layout ────────────────────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ─── Card ───────────────────────────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid #EDE9E2;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #F0EDE7;
+}
+
+.cardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1A1A18;
+}
+
+.cardAction {
+  background: rgba(45,90,61,0.07);
+  color: #2D5A3D;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.15s;
+}
+
+.cardAction:hover {
+  background: rgba(45,90,61,0.14);
+}
+
+/* ─── Calendar Controls ──────────────────────────────────────────────────── */
+.calendarTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid #F0EDE7;
+}
+
+.monthTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1A1A18;
+}
+
+.monthControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid #EDE9E2;
+  background: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  color: #5A5750;
+  transition: all 0.15s ease;
+}
+
+.navBtn:hover {
+  background: #F7F4EF;
+}
+
+/* ─── Calendar Grid ──────────────────────────────────────────────────────── */
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-top: 1px solid #F0EDE7;
+}
+
+.dayHeader {
+  padding: 14px 0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #9A9590;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #FAFAF8;
+  border-bottom: 1px solid #F0EDE7;
+}
+
+.dayCell {
+  min-height: 120px;
+  border-right: 1px solid #F4F1EB;
+  border-bottom: 1px solid #F4F1EB;
+  padding: 10px;
+  position: relative;
+  background: #fff;
+  transition: background 0.15s;
+}
+
+.dayCell:hover {
+  background: #FCFBF8;
+}
+
+.dayCell:nth-child(7n) {
+  border-right: none;
+}
+
+.dayMuted {
+  background: #FBFAF7;
+}
+
+.dayMuted .dayNumber {
+  opacity: 0.35;
+}
+
+.today {
+  background: rgba(45,90,61,0.04);
+}
+
+.today .dayNumber {
+  background: #2D5A3D;
+  color: #fff;
+}
+
+.dayNumber {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1A1A18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.dayEvents {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ─── Event Chips ────────────────────────────────────────────────────────── */
+.eventChip {
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.eventChip:hover {
+  transform: translateY(-1px);
+}
+
+.eventPrayer {
+  background: rgba(45,90,61,0.09);
+  color: #2D5A3D;
+  border-left: 3px solid #2D5A3D;
+}
+
+.eventBirthday {
+  background: rgba(90,61,110,0.08);
+  color: #5A3D6E;
+  border-left: 3px solid #5A3D6E;
+}
+
+.eventMeeting {
+  background: rgba(61,90,138,0.08);
+  color: #3D5A8A;
+  border-left: 3px solid #3D5A8A;
+}
+
+.eventEmergency {
+  background: rgba(192,57,43,0.08);
+  color: #C0392B;
+  border-left: 3px solid #C0392B;
+}
+
+.eventMemory {
+  background: rgba(201,168,76,0.10);
+  color: #8A6D20;
+  border-left: 3px solid #C9A84C;
+}
+
+.eventTime {
+  display: block;
+  margin-top: 2px;
+  opacity: 0.7;
+  font-size: 9px;
+}
+
+/* ─── Upcoming Events ────────────────────────────────────────────────────── */
+.upcomingList {
+  display: flex;
+  flex-direction: column;
+}
+
+.upcomingItem {
+  display: flex;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid #F0EDE7;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+
+.upcomingItem:last-child {
+  border-bottom: none;
+}
+
+.upcomingItem:hover {
+  background: #F7F4EF;
+}
+
+.upcomingDate {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #F7F4EF;
+  border: 1px solid #EDE9E2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.upcomingDay {
+  font-size: 9px;
+  text-transform: uppercase;
+  color: #9A9590;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.upcomingNum {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1A1A18;
+  line-height: 1;
+}
+
+.upcomingBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.upcomingTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1A18;
+  margin-bottom: 3px;
+}
+
+.upcomingMeta {
+  font-size: 11px;
+  color: #9A9590;
+  line-height: 1.5;
+}
+
+.upcomingBadge {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ─── Mini Calendar ──────────────────────────────────────────────────────── */
+.miniCalendar {
+  padding: 16px;
+}
+
+.miniMonth {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1A1A18;
+  margin-bottom: 14px;
+}
+
+.miniGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.miniDayHead {
+  text-align: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: #B0ABA5;
+  text-transform: uppercase;
+}
+
+.miniDay {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background: #F7F4EF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #5A5750;
+}
+
+.miniToday {
+  background: #2D5A3D;
+  color: #fff;
+  font-weight: 600;
+}
+
+.miniHasEvent {
+  border: 1px solid rgba(45,90,61,0.3);
+}
+
+/* ─── Legend ─────────────────────────────────────────────────────────────── */
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #5A5750;
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legendPrayer { background: #2D5A3D; }
+.legendBirthday { background: #5A3D6E; }
+.legendMeeting { background: #3D5A8A; }
+.legendEmergency { background: #C0392B; }
+.legendMemory { background: #C9A84C; }
+
+/* ─── Empty State ────────────────────────────────────────────────────────── */
+.emptyState {
+  padding: 40px 20px;
+  text-align: center;
+  color: #B0ABA5;
+  font-size: 13px;
+}
+
+/* ─── Dark Mode ──────────────────────────────────────────────────────────── */
+[data-theme="dark"] .page {
+  background: #111410;
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .headerLeft h1,
+[data-theme="dark"] .monthTitle,
+[data-theme="dark"] .miniMonth,
+[data-theme="dark"] .upcomingNum,
+[data-theme="dark"] .upcomingTitle,
+[data-theme="dark"] .statValue,
+[data-theme="dark"] .cardTitle {
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .headerLeft p,
+[data-theme="dark"] .statLabel,
+[data-theme="dark"] .upcomingMeta,
+[data-theme="dark"] .legendItem,
+[data-theme="dark"] .miniDayHead {
+  color: #6A6A62;
+}
+
+[data-theme="dark"] .themeBtn {
+  background: #1E2219;
+  border-color: #2E3428;
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .themeBtn:hover {
+  background: #252B20;
+}
+
+[data-theme="dark"] .statCard,
+[data-theme="dark"] .card {
+  background: #1E2219;
+  border-color: #2E3428;
+}
+
+[data-theme="dark"] .calendarTop,
+[data-theme="dark"] .cardHeader,
+[data-theme="dark"] .dayHeader,
+[data-theme="dark"] .upcomingItem {
+  border-color: #2E3428;
+}
+
+[data-theme="dark"] .dayHeader {
+  background: #191C17;
+  color: #6A6A62;
+}
+
+[data-theme="dark"] .dayCell {
+  background: #1E2219;
+  border-color: #252B20;
+}
+
+[data-theme="dark"] .dayCell:hover {
+  background: #252B20;
+}
+
+[data-theme="dark"] .dayMuted {
+  background: #191C17;
+}
+
+[data-theme="dark"] .dayNumber {
+  color: #EDE9E1;
+}
+
+[data-theme="dark"] .today {
+  background: rgba(45,90,61,0.12);
+}
+
+[data-theme="dark"] .navBtn {
+  background: #1E2219;
+  border-color: #2E3428;
+  color: #A8A89E;
+}
+
+[data-theme="dark"] .navBtn:hover {
+  background: #252B20;
+}
+
+[data-theme="dark"] .upcomingDate {
+  background: #191C17;
+  border-color: #2E3428;
+}
+
+[data-theme="dark"] .upcomingItem:hover {
+  background: #252B20;
+}
+
+[data-theme="dark"] .miniDay {
+  background: #191C17;
+  color: #A8A89E;
+}
+
+[data-theme="dark"] .miniToday {
+  background: #2D5A3D;
+  color: #fff;
+}
+
+[data-theme="dark"] .emptyState {
+  color: #6A6A62;
+}
