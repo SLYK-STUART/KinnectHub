@@ -901,3 +901,70 @@
 [data-theme="dark"] .spouseConnector {
   background: linear-gradient(90deg, #2E3428, #C9A84C55, #2E3428);
 }
+
+@media (max-width: 768px) {
+  .page {
+    padding: 16px 20px;
+    gap: 20px;
+    grid-template-columns: 1fr;           /* Stack left and right columns */
+  }
+
+  .statsStrip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .headerLeft h1 {
+    font-size: 22px;
+  }
+
+  .treeWrap {
+    min-width: 480px;
+  }
+
+  .memoryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .treeNodeAvatar {
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 14px 16px;
+    gap: 18px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .headerActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .statsStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .treeWrap {
+    min-width: 420px;
+  }
+
+  .memoryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .profileModalCard {
+    width: 94vw;
+    max-width: 380px;
+  }
+}
