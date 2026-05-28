@@ -1015,3 +1015,135 @@
 [data-theme="dark"] .cancelBtn:hover    { background: #252B20; }
 [data-theme="dark"] .modalActions       { background: #191C17; border-color: #2E3428; }
  
+
+/* ============================================= */
+/*              RESPONSIVE DESIGN               */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 16px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .statsStrip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .headerLeft h1 {
+    font-size: 23px;
+  }
+
+  .card {
+    margin-bottom: 16px;
+  }
+
+  .quickActions {
+    grid-template-columns: 1fr;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal,
+  .addModal {
+    width: 94vw;
+    max-width: 420px;
+  }
+
+  .memberCell {
+    padding: 12px 14px;
+  }
+
+  .statIcon {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .statValue,
+  .statValueAlert {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 16px 14px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .headerActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .statsStrip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .tabBar {
+    padding: 10px 12px 0;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .memberTableHead th,
+  .memberCell {
+    padding: 10px 12px;
+    font-size: 12.5px;
+  }
+
+  .modalHeader {
+    padding: 28px 20px 18px;
+  }
+
+  .modalAvatar {
+    width: 64px;
+    height: 64px;
+    font-size: 24px;
+  }
+
+  .modalName {
+    font-size: 18px;
+  }
+
+  .formGrid {
+    gap: 10px;
+    padding: 18px 20px;
+  }
+
+  .addModalHeader,
+  .addModalFooter {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .quickActionBtn {
+    padding: 16px 10px;
+  }
+
+  .deletionItem,
+  .logItem {
+    padding: 14px 16px;
+  }
+}

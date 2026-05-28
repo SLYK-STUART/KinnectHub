@@ -713,3 +713,130 @@
 
 [data-theme="dark"] .emptyState p,
 [data-theme="dark"] .emptyState .emptyIcon { opacity: 0.5; }
+
+
+/* ============================================= */
+/*              RESPONSIVE DESIGN               */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 16px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .statsStrip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .searchBox {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+
+  .leftCol,
+  .rightCol {
+    gap: 20px;
+  }
+
+  .item {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .poster {
+    width: 42px;
+    height: 60px;
+    font-size: 22px;
+  }
+
+  .itemTitle {
+    font-size: 13px;
+  }
+
+  .nextItem {
+    padding: 12px 16px;
+  }
+
+  .nextPoster {
+    width: 36px;
+    height: 50px;
+  }
+
+  .genreGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 16px 14px;
+    gap: 18px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .headerActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .statsStrip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .addBtn {
+    padding: 9px 16px;
+    font-size: 12.8px;
+  }
+
+  .item {
+    padding: 13px 14px;
+    gap: 10px;
+  }
+
+  .poster {
+    width: 38px;
+    height: 55px;
+  }
+
+  .itemTitle {
+    font-size: 12.8px;
+  }
+
+  .nextItem {
+    padding: 11px 14px;
+    gap: 10px;
+  }
+
+  .genreGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .genreChip {
+    padding: 11px;
+  }
+}

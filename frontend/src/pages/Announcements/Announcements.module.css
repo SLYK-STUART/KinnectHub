@@ -930,3 +930,167 @@
 [data-theme="dark"] .urgentLabel    { color: #6A6A62; }
 [data-theme="dark"] .cancelBtn      { background: #191C17; color: #A8A89E; }
 [data-theme="dark"] .cancelBtn:hover{ background: #252B20; }
+
+
+/* ============================================= */
+/*              RESPONSIVE DESIGN               */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 16px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .h1 {
+    font-size: 23px;
+  }
+
+  .filterBar {
+    gap: 6px;
+  }
+
+  .filterChip,
+  .filterChipActive {
+    padding: 5px 14px;
+    font-size: 11.5px;
+  }
+
+  .card {
+    margin-bottom: 14px;
+  }
+
+  .announcementHeader {
+    padding: 16px 18px 12px;
+  }
+
+  .avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 12px;
+  }
+
+  .announcementTitle {
+    font-size: 14.5px;
+  }
+
+  .pollBox {
+    margin: 0 16px 14px;
+    padding: 12px 14px;
+  }
+
+  .sideNewBtn {
+    margin-bottom: 16px;
+  }
+
+  .modal {
+    width: 94vw;
+    max-width: 460px;
+  }
+
+  .modalHeader,
+  .modalBody {
+    padding: 18px 20px;
+  }
+
+  .modalTitle {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 16px 14px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .headerActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .newBtn {
+    padding: 8px 16px;
+    font-size: 12.5px;
+  }
+
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filterChip,
+  .filterChipActive {
+    justify-content: center;
+  }
+
+  .announcementHeader {
+    padding: 14px 16px 10px;
+  }
+
+  .announcementBody,
+  .announcementBodyCollapsed {
+    font-size: 12.8px;
+    line-height: 1.55;
+  }
+
+  .pollOption,
+  .pollOptionVoted {
+    margin-bottom: 10px;
+  }
+
+  .replyItem {
+    margin-bottom: 14px;
+  }
+
+  .replyBubble {
+    padding: 7px 11px;
+  }
+
+  .modal {
+    width: 96vw;
+    max-width: 420px;
+  }
+
+  .modalHeader {
+    padding: 16px 18px;
+  }
+
+  .modalBody {
+    padding: 16px 18px;
+  }
+
+  .modalInput,
+  .modalTextarea {
+    padding: 10px 12px;
+    font-size: 12.8px;
+  }
+
+  .modalFooter {
+    padding: 0 18px 18px;
+  }
+
+  .sideCardHeader {
+    padding: 12px 14px;
+  }
+
+  .statRow,
+  .activeAuthorRow {
+    padding: 9px 14px;
+  }
+}

@@ -1029,3 +1029,140 @@
   border-color: #2E3428;
   color: #A8A89E;
 }
+
+/* ============================================= */
+/*              RESPONSIVE DESIGN               */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 16px;
+    gap: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .mapWrap {
+    height: 280px;
+  }
+
+  .sosHeaderBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 14.5px;
+  }
+
+  .cardHeader {
+    padding: 14px 18px;
+  }
+
+  .locationItem {
+    padding: 13px 16px;
+  }
+
+  .locationAvatarImg {
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+
+  .myLocationCard {
+    padding: 20px;
+  }
+
+  .myLocationValue {
+    font-size: 17px;
+  }
+
+  .sosModal,
+  .iAmSafeModal {
+    width: 94vw;
+    max-width: 380px;
+  }
+
+  .sosModalTop,
+  .iAmSafeTop {
+    padding: 32px 24px 24px;
+  }
+
+  .sosModalBody,
+  .iAmSafeBody {
+    padding: 24px 24px;
+  }
+
+  .sosModalFooter,
+  .iAmSafeFooter {
+    padding: 0 24px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 16px 14px;
+    gap: 18px;
+  }
+
+  .headerLeft h1 {
+    font-size: 23px;
+  }
+
+  .mapWrap {
+    height: 240px;
+  }
+
+  .locationItem {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .locationAvatarImg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .myLocationCard {
+    padding: 18px;
+  }
+
+  .activeSosBanner {
+    padding: 16px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .activeSosRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sosHeaderBtn {
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+
+  .sosModalTop,
+  .iAmSafeTop {
+    padding: 30px 20px 22px;
+  }
+
+  .sosModalIcon,
+  .iAmSafeIcon {
+    font-size: 46px;
+  }
+
+  .sosModalTitle,
+  .iAmSafeTitle {
+    font-size: 21px;
+  }
+}

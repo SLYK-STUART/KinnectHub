@@ -965,3 +965,156 @@
 [data-theme="dark"] .backBtn:hover { color: #EDE9E1; }
 
 [data-theme="dark"] .emptyText { color: #6A6A62; }
+
+/* ============================================= */
+/*              RESPONSIVE DESIGN               */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  .page,
+  .interiorPage {
+    padding: 20px 16px;
+  }
+
+  .header {
+    margin-bottom: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .headerRight {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .vaultGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .vaultCard {
+    padding: 20px;
+  }
+
+  .vaultEmoji {
+    width: 46px;
+    height: 46px;
+    font-size: 24px;
+  }
+
+  .interiorHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+  }
+
+  .docListHeader,
+  .docItem {
+    grid-template-columns: 1fr 100px 80px;
+    gap: 12px;
+  }
+
+  .docListHeaderCell:nth-child(3),
+  .docItem > *:nth-child(3) {
+    display: none;
+  }
+
+  .createModal,
+  .uploadModal,
+  .passcodeModal {
+    width: 94vw;
+    max-width: 400px;
+  }
+
+  .createModalBody,
+  .uploadModalBody,
+  .passcodeModalBody {
+    padding: 24px 24px;
+  }
+
+  .typeGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .dropZone {
+    padding: 32px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page,
+  .interiorPage {
+    padding: 16px 14px;
+  }
+
+  .headerLeft h1 {
+    font-size: 23px;
+  }
+
+  .createBtn {
+    padding: 9px 16px;
+    font-size: 12.8px;
+  }
+
+  .vaultGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .vaultCard {
+    padding: 18px;
+  }
+
+  .interiorHeader {
+    padding: 16px 18px;
+  }
+
+  .interiorEmoji {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+
+  .docListHeader,
+  .docItem {
+    grid-template-columns: 1fr 90px;
+    gap: 10px;
+  }
+
+  .docListHeaderCell:nth-child(2),
+  .docItem > *:nth-child(2) {
+    display: none;
+  }
+
+  .docItemName {
+    gap: 10px;
+  }
+
+  .docTypeIcon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .passcodeModalHeader {
+    padding: 32px 24px 20px;
+  }
+
+  .passcodeVaultEmoji {
+    width: 56px;
+    height: 56px;
+    font-size: 28px;
+  }
+
+  .numKey {
+    height: 52px;
+    font-size: 18px;
+  }
+
+  .createModalHeader,
+  .uploadModalHeader {
+    padding: 24px 24px 18px;
+  }
+}

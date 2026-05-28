@@ -742,3 +742,156 @@
 [data-theme="dark"] .modalBody {
   color: #A8A89E;
 }
+
+
+/* ============================================= */
+/*              RESPONSIVE DESIGN               */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 16px;
+  }
+
+  .header {
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .headerLeft h1 {
+    font-size: 24px;
+  }
+
+  .heroStrip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .leftCol,
+  .rightCol {
+    gap: 18px;
+  }
+
+  .cardHeader {
+    padding: 14px 18px;
+  }
+
+  .gratitudeGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .prayerCard {
+    padding: 18px;
+  }
+
+  .prayerTitle {
+    font-size: 18px;
+  }
+
+  .verseText {
+    font-size: 18px;
+  }
+
+  .modal {
+    width: 94vw;
+    max-width: 440px;
+  }
+
+  .modalHeader {
+    padding: 30px 24px 20px;
+  }
+
+  .modalBody {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 16px 14px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .headerActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .heroStrip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .heroValue {
+    font-size: 24px;
+  }
+
+  .heroIcon {
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+  }
+
+  .prayerCard {
+    padding: 16px;
+  }
+
+  .prayerTitle {
+    font-size: 17px;
+  }
+
+  .prayerMessage {
+    font-size: 13.5px;
+    line-height: 1.75;
+  }
+
+  .gratitudeCard {
+    padding: 16px;
+  }
+
+  .gratitudeTitle {
+    font-size: 17px;
+  }
+
+  .verseBox {
+    padding: 24px 18px;
+  }
+
+  .verseText {
+    font-size: 17px;
+  }
+
+  .modalHeader {
+    padding: 28px 20px 18px;
+  }
+
+  .modalAvatar {
+    width: 64px;
+    height: 64px;
+    font-size: 22px;
+  }
+
+  .modalTitle {
+    font-size: 21px;
+  }
+
+  .tabBar {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 4px;
+  }
+}
