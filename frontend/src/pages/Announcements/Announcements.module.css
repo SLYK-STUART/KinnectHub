@@ -932,91 +932,33 @@
 [data-theme="dark"] .cancelBtn:hover{ background: #252B20; }
 
 
-/* ============================================= */
-/*              RESPONSIVE DESIGN               */
-/* ============================================= */
+/* ─── Responsive Design ─────────────────────────────────────────────────── */
 
+/* Large tablets */
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sideNewBtn {
+    display: none;
+  }
+
+  .announcementBodyCollapsed {
+    max-width: 100%;
+  }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
   .page {
     padding: 20px 16px;
   }
 
   .header {
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .layout {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .h1 {
-    font-size: 23px;
-  }
-
-  .filterBar {
-    gap: 6px;
-  }
-
-  .filterChip,
-  .filterChipActive {
-    padding: 5px 14px;
-    font-size: 11.5px;
-  }
-
-  .card {
-    margin-bottom: 14px;
-  }
-
-  .announcementHeader {
-    padding: 16px 18px 12px;
-  }
-
-  .avatar {
-    width: 38px;
-    height: 38px;
-    font-size: 12px;
-  }
-
-  .announcementTitle {
-    font-size: 14.5px;
-  }
-
-  .pollBox {
-    margin: 0 16px 14px;
-    padding: 12px 14px;
-  }
-
-  .sideNewBtn {
-    margin-bottom: 16px;
-  }
-
-  .modal {
-    width: 94vw;
-    max-width: 460px;
-  }
-
-  .modalHeader,
-  .modalBody {
-    padding: 18px 20px;
-  }
-
-  .modalTitle {
-    font-size: 17px;
-  }
-}
-
-@media (max-width: 480px) {
-  .page {
-    padding: 16px 14px;
-  }
-
-  .header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 14px;
+    gap: 16px;
   }
 
   .headerActions {
@@ -1025,64 +967,179 @@
   }
 
   .newBtn {
-    padding: 8px 16px;
-    font-size: 12.5px;
+    flex: 1;
+    justify-content: center;
   }
 
   .filterBar {
+    gap: 10px;
+  }
+
+  .filterCount {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .announcementHeader {
+    padding: 16px;
+  }
+
+  .announcementFooterRow {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .footerActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .pollBox {
+    margin: 0 16px 16px;
+  }
+
+  .repliesSection {
+    padding: 12px 16px 16px;
+  }
+
+  .replyInputRow {
+    align-items: flex-start;
+  }
+
+  .replyInput {
+    min-width: 0;
+  }
+
+  .modal {
+    width: 100%;
+    max-width: calc(100vw - 24px);
+    margin: 12px;
+    border-radius: 18px;
+  }
+
+  .modalBody,
+  .modalHeader,
+  .modalFooter,
+  .urgentToggleRow {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .modalOptions {
+    flex-direction: column;
+  }
+
+  .optionBtn,
+  .optionBtnActive {
+    width: 100%;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .page {
+    padding: 16px 12px;
+  }
+
+  .h1 {
+    font-size: 22px;
+  }
+
+  .subtext {
+    font-size: 12px;
+  }
+
+  .headerActions {
+    gap: 8px;
+  }
+
+  .themeBtn {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .newBtn {
+    padding: 10px 14px;
+    font-size: 12px;
   }
 
   .filterChip,
   .filterChipActive {
-    justify-content: center;
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .card {
+    border-radius: 14px;
   }
 
   .announcementHeader {
-    padding: 14px 16px 10px;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .avatar {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 11px !important;
+  }
+
+  .authorRow {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .announcementTitle {
+    font-size: 14px;
   }
 
   .announcementBody,
   .announcementBodyCollapsed {
-    font-size: 12.8px;
-    line-height: 1.55;
+    font-size: 12px;
+    line-height: 1.5;
   }
 
-  .pollOption,
-  .pollOptionVoted {
-    margin-bottom: 10px;
+  .announcementBodyCollapsed {
+    max-width: 100%;
   }
 
-  .replyItem {
-    margin-bottom: 14px;
+  .iconBtn {
+    font-size: 10px;
+  }
+
+  .pollBox {
+    padding: 12px;
+  }
+
+  .pollBar,
+  .pollBarVoted {
+    height: 32px;
   }
 
   .replyBubble {
-    padding: 7px 11px;
+    padding: 8px 10px;
   }
 
-  .modal {
-    width: 96vw;
-    max-width: 420px;
+  .replyText {
+    font-size: 11px;
   }
 
-  .modalHeader {
-    padding: 16px 18px;
+  .replyInput {
+    font-size: 11px;
+    padding: 8px 14px;
   }
 
-  .modalBody {
-    padding: 16px 18px;
+  .sendBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
   }
 
-  .modalInput,
-  .modalTextarea {
-    padding: 10px 12px;
-    font-size: 12.8px;
-  }
-
-  .modalFooter {
-    padding: 0 18px 18px;
+  .sideCard {
+    border-radius: 14px;
   }
 
   .sideCardHeader {
@@ -1091,6 +1148,52 @@
 
   .statRow,
   .activeAuthorRow {
-    padding: 9px 14px;
+    padding: 10px 14px;
+  }
+
+  .modalTitle {
+    font-size: 16px;
+  }
+
+  .modalInput,
+  .modalTextarea {
+    font-size: 12px;
+  }
+
+  .modalFooter {
+    flex-direction: column;
+  }
+
+  .cancelBtn,
+  .modalPostBtn {
+    width: 100%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filterChip,
+  .filterChipActive {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footerActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .replyInputRow {
+    gap: 6px;
+  }
+
+  .modal {
+    border-radius: 16px;
   }
 }
