@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import AppShell from '../../components/layout/AppShell/AppShell';
-import styles from './Vault.module.css';
+import styles from './vault.module.css';
 import {
   mockVaultCategories,
   mockDocuments,
