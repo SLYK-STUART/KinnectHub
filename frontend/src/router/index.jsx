@@ -8,7 +8,7 @@ import ProtectedRoute from "./ProtectedRoute";
 
 import Vault from '../pages/vault/vault';
 
-import Location from "../pages/location/location";
+import Location from "../pages/Location/Location";
 
 import Watchlist from "../pages/watchlist/Watchlist";
 
