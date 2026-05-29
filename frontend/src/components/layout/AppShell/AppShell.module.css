@@ -1,25 +1,54 @@
+/* ─── Shell — full-viewport flex row ─────────────────────────────────────── */
 .shell {
   display: flex;
+  min-height: 100vh;
+  background: #F7F4EF;
+  position: relative;
+}
 
+/* ─── Main area ──────────────────────────────────────────────────────────── */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
   min-height: 100vh;
 }
 
-.main {
-  flex: 1;
-
-  display: flex;
-
-  flex-direction: column;
-}
-
+/* ─── Scrollable page content ────────────────────────────────────────────── */
 .content {
   flex: 1;
-
-  padding: 1rem;
+  overflow-y: auto;
 }
 
-@media (min-width: 768px) {
+/* ─── Backdrop (mobile drawer overlay) ──────────────────────────────────── */
+.backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 90; /* below sidebar (100) but above everything else */
+  backdrop-filter: blur(2px);
+  animation: fadeIn 200ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .backdrop {
+    display: block;
+  }
+
   .content {
-    padding: 2rem;
+    /* leave room for fixed BottomNav */
+    padding-bottom: calc(64px + env(safe-area-inset-bottom));
   }
 }
+
+/* ─── Dark mode ──────────────────────────────────────────────────────────── */
+[data-theme="dark"] .shell { background: #111410; }
+[data-theme="dark"] .main  { background: #111410; }

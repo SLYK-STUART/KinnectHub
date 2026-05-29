@@ -1,17 +1,124 @@
+/* ─── Bottom Nav ─────────────────────────────────────────────────────────── */
 .bottomNav {
-  display: flex;
-
+  display: none; /* hidden on desktop — shown via media query */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+  border-top: 1px solid #EDE9E2;
+  padding: 8px 4px calc(8px + env(safe-area-inset-bottom));
   justify-content: space-around;
-
-  padding: 1rem;
-
-  border-top: 1px solid #374151;
-
-  background-color: var(--bg-secondary);
+  align-items: center;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
 }
 
-@media (min-width: 768px) {
+/* ─── Nav Item ───────────────────────────────────────────────────────────── */
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #9A9590;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  transition: all 0.15s ease;
+  position: relative;
+  flex: 1;
+  max-width: 72px;
+}
+
+.navItem:hover {
+  color: #5A5750;
+  background: #F7F4EF;
+}
+
+.navItemActive {
+  color: #2D5A3D;
+}
+
+.navItemActive:hover {
+  background: rgba(45,90,61,0.06);
+}
+
+/* ─── Icon wrapper (for badge positioning) ───────────────────────────────── */
+.navIcon {
+  font-size: 20px;
+  line-height: 1;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Label ──────────────────────────────────────────────────────────────── */
+.navLabel {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.navItemActive .navLabel {
+  font-weight: 700;
+}
+
+/* ─── Active indicator dot ───────────────────────────────────────────────── */
+.activeDot {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #2D5A3D;
+}
+
+/* ─── Badge ──────────────────────────────────────────────────────────────── */
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: #C0392B;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  min-width: 14px;
+  height: 14px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  line-height: 1;
+  border: 1.5px solid #fff;
+}
+
+/* ─── Admin item ─────────────────────────────────────────────────────────── */
+.adminItem {
+  color: #8A7030;
+}
+
+.adminItem.navItemActive {
+  color: #5A4420;
+}
+
+/* ─── Show on mobile only ────────────────────────────────────────────────── */
+@media (max-width: 768px) {
   .bottomNav {
-    display: none;
+    display: flex;
   }
 }
+
+/* ─── Dark Mode ──────────────────────────────────────────────────────────── */
+[data-theme="dark"] .bottomNav     { background: #1E2219; border-color: #2E3428; box-shadow: 0 -4px 20px rgba(0,0,0,0.3); }
+[data-theme="dark"] .navItem       { color: #6A6A62; }
+[data-theme="dark"] .navItem:hover { background: #252B20; color: #A8A89E; }
+[data-theme="dark"] .navItemActive { color: #7DC49A; }
+[data-theme="dark"] .activeDot     { background: #7DC49A; }
+[data-theme="dark"] .badge         { border-color: #1E2219; }
+[data-theme="dark"] .adminItem     { color: #8A7040; }
+[data-theme="dark"] .adminItem.navItemActive { color: #C9A84C; }

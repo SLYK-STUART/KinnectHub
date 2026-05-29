@@ -1,27 +1,239 @@
+/* ─── Sidebar — desktop default ──────────────────────────────────────────── */
 .sidebar {
-  width: 240px;
-
-  background-color: var(--bg-secondary);
-
-  padding: 1.5rem;
-
-  display: none;
-
-  border-right: 1px solid #374151;
-}
-
-.nav {
-  margin-top: 2rem;
-
+  width: 220px;
+  min-height: 100vh;
+  background: #fff;
+  border-right: 1px solid #EDE9E2;
   display: flex;
-
   flex-direction: column;
-
-  gap: 1rem;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: 1px 0 0 #EDE9E2;
+  /* transition so the mobile slide feels smooth */
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
 }
 
-@media (min-width: 768px) {
+/* ─── Brand ──────────────────────────────────────────────────────────────── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 16px 18px;
+  border-bottom: 1px solid #F0EDE7;
+}
+
+.brandMark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2D5A3D, #3D7A50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(45,90,61,0.3);
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.brandName {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1A1A18;
+  line-height: 1.1;
+}
+
+.brandFamily {
+  font-size: 10px;
+  color: #9A9590;
+  margin-top: 1px;
+}
+
+/* Close button — shown only on mobile */
+.closeBtn {
+  display: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid #EDE9E2;
+  background: #F7F4EF;
+  cursor: pointer;
+  font-size: 12px;
+  color: #5A5750;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.closeBtn:hover { background: #EDE9E1; }
+
+/* ─── Nav ────────────────────────────────────────────────────────────────── */
+.nav {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 10px;
+  flex: 1;
+  gap: 2px;
+}
+
+.navSection {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #C0BAB2;
+  padding: 4px 10px 8px;
+  display: block;
+}
+
+/* ─── Nav Link ───────────────────────────────────────────────────────────── */
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6A6A5E;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.link:hover            { background: #F7F4EF; color: #1A1A18; }
+.linkActive            { background: rgba(45,90,61,0.09); color: #2D5A3D; font-weight: 600; }
+.linkActive:hover      { background: rgba(45,90,61,0.13); }
+
+.linkIcon  { font-size: 16px; width: 22px; text-align: center; flex-shrink: 0; }
+.linkLabel { flex: 1; }
+
+.adminLink            { color: #7A6030; }
+.adminLink:hover      { background: rgba(201,168,76,0.08); color: #5A4420; }
+.adminLink.linkActive { background: rgba(201,168,76,0.12); color: #5A4420; }
+
+/* ─── Badge ──────────────────────────────────────────────────────────────── */
+.badge {
+  background: #C0392B;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 20px;
+  line-height: 1.6;
+}
+
+/* ─── User Card ──────────────────────────────────────────────────────────── */
+.userCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-top: 1px solid #F0EDE7;
+  background: #FAFAF8;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.userInfo { flex: 1; min-width: 0; }
+
+.userName {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1A1A18;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userRole  { font-size: 10px; color: #9A9590; }
+
+.logoutBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.15s;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.logoutBtn:hover { background: #F0EDE7; opacity: 1; }
+
+/* ─── Mobile — drawer behaviour ──────────────────────────────────────────── */
+@media (max-width: 768px) {
   .sidebar {
-    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;          /* slightly wider on mobile for comfort */
+    transform: translateX(-100%);   /* hidden off-screen by default */
+    box-shadow: none;
   }
+
+  /* Open state: slide in */
+  .sidebarOpen {
+    transform: translateX(0);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Show the ✕ close button on mobile */
+  .closeBtn {
+    display: flex;
+  }
+}
+
+/* ─── Dark Mode ──────────────────────────────────────────────────────────── */
+[data-theme="dark"] .sidebar      { background: #1E2219; border-color: #2E3428; box-shadow: 1px 0 0 #2E3428; }
+[data-theme="dark"] .brand        { border-color: #2E3428; }
+[data-theme="dark"] .brandName    { color: #EDE9E1; }
+[data-theme="dark"] .brandFamily  { color: #6A6A62; }
+[data-theme="dark"] .closeBtn     { background: #252B20; border-color: #2E3428; color: #A8A89E; }
+[data-theme="dark"] .closeBtn:hover { background: #2E3428; }
+[data-theme="dark"] .navSection   { color: #4A4A42; }
+[data-theme="dark"] .link         { color: #6A6A62; }
+[data-theme="dark"] .link:hover   { background: #252B20; color: #EDE9E1; }
+[data-theme="dark"] .linkActive   { background: rgba(45,90,61,0.2); color: #7DC49A; }
+[data-theme="dark"] .linkActive:hover { background: rgba(45,90,61,0.28); }
+[data-theme="dark"] .adminLink    { color: #8A7040; }
+[data-theme="dark"] .adminLink:hover { background: rgba(201,168,76,0.08); color: #C9A84C; }
+[data-theme="dark"] .adminLink.linkActive { background: rgba(201,168,76,0.12); color: #C9A84C; }
+[data-theme="dark"] .userCard     { background: #191C17; border-color: #2E3428; }
+[data-theme="dark"] .userName     { color: #EDE9E1; }
+[data-theme="dark"] .userRole     { color: #6A6A62; }
+[data-theme="dark"] .logoutBtn:hover { background: #252B20; }
+
+/* dark mobile drawer shadow */
+@media (max-width: 768px) {
+  [data-theme="dark"] .sidebarOpen { box-shadow: 4px 0 24px rgba(0,0,0,0.5); }
 }

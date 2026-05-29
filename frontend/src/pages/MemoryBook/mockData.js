@@ -1,0 +1,186 @@
+// ─── Albums ───────────────────────────────────────────────────────────────────
+export const mockAlbums = [
+  {
+    id: 'al1',
+    name: 'Graduation 2024',
+    emoji: '🎓',
+    year: '2024',
+    event: 'Graduation',
+    coverColor: '#3D5A8A',
+    photoCount: 24,
+    videoCount: 1,
+    createdBy: 'Tayebwa Stuart',
+    createdByInitials: 'TS',
+    createdByColor: '#3D5A8A',
+    createdAt: 'Apr 15, 2024',
+    description: 'Stuart\'s graduation ceremony at Makerere University.',
+    tags: ['u3', 'u1', 'u2'],
+  },
+  {
+    id: 'al2',
+    name: 'Christmas 2024',
+    emoji: '🎄',
+    year: '2024',
+    event: 'Christmas',
+    coverColor: '#C0392B',
+    photoCount: 18,
+    videoCount: 2,
+    createdBy: 'Kyogabirwe Enid',
+    createdByInitials: 'KE',
+    createdByColor: '#5A3D6E',
+    createdAt: 'Dec 26, 2024',
+    description: 'Christmas celebration at home in Kampala.',
+    tags: ['u1', 'u2', 'u3', 'u4', 'u5'],
+  },
+  {
+    id: 'al3',
+    name: 'Family Trip — Jinja',
+    emoji: '✈️',
+    year: '2024',
+    event: 'Family Trip',
+    coverColor: '#3D7A6E',
+    photoCount: 41,
+    videoCount: 4,
+    createdBy: 'Tayebwa Osbert',
+    createdByInitials: 'TO',
+    createdByColor: '#2D5A3D',
+    createdAt: 'Aug 3, 2024',
+    description: 'Weekend getaway to Jinja and the source of the Nile.',
+    tags: ['u1', 'u2', 'u3', 'u4', 'u5'],
+  },
+  {
+    id: 'al4',
+    name: 'Easter 2024',
+    emoji: '🌸',
+    year: '2024',
+    event: 'Easter',
+    coverColor: '#8A5A3D',
+    photoCount: 12,
+    videoCount: 0,
+    createdBy: 'Kyogabirwe Enid',
+    createdByInitials: 'KE',
+    createdByColor: '#5A3D6E',
+    createdAt: 'Mar 31, 2024',
+    description: 'Easter Sunday family gathering and lunch.',
+    tags: ['u1', 'u2', 'u4', 'u6'],
+  },
+  {
+    id: 'al5',
+    name: 'Christmas 2023',
+    emoji: '🎄',
+    year: '2023',
+    event: 'Christmas',
+    coverColor: '#2D5A3D',
+    photoCount: 22,
+    videoCount: 1,
+    createdBy: 'Tayebwa Stuart',
+    createdByInitials: 'TS',
+    createdByColor: '#3D5A8A',
+    createdAt: 'Dec 26, 2023',
+    description: 'Christmas 2023 with extended family.',
+    tags: ['u1', 'u2', 'u3', 'u4', 'u5', 'u6'],
+  },
+  {
+    id: 'al6',
+    name: 'Dad\'s Birthday 2023',
+    emoji: '🎂',
+    year: '2023',
+    event: 'Birthday',
+    coverColor: '#C9A84C',
+    photoCount: 9,
+    videoCount: 1,
+    createdBy: 'Tayebwa Stuart',
+    createdByInitials: 'TS',
+    createdByColor: '#3D5A8A',
+    createdAt: 'Jul 14, 2023',
+    description: 'Celebrating Dad\'s birthday — surprise party!',
+    tags: ['u1', 'u2', 'u3', 'u4', 'u5'],
+  },
+  {
+    id: 'al7',
+    name: 'Mum\'s Day 2023',
+    emoji: '💐',
+    year: '2023',
+    event: 'Mothers Day',
+    coverColor: '#5A3D6E',
+    photoCount: 7,
+    videoCount: 0,
+    createdBy: 'Turyaguma Osbert',
+    createdByInitials: 'TO2',
+    createdByColor: '#8A5A3D',
+    createdAt: 'May 14, 2023',
+    description: 'Mother\'s Day brunch — Mum\'s favourite flowers.',
+    tags: ['u1', 'u2', 'u4'],
+  },
+  {
+    id: 'al8',
+    name: 'School Closing 2023',
+    emoji: '🏫',
+    year: '2023',
+    event: 'School',
+    coverColor: '#3D5A8A',
+    photoCount: 14,
+    videoCount: 0,
+    createdBy: 'Kyogabirwe Enid',
+    createdByInitials: 'KE',
+    createdByColor: '#5A3D6E',
+    createdAt: 'Nov 30, 2023',
+    description: 'End of year school closing day celebrations.',
+    tags: ['u2', 'u4', 'u5'],
+  },
+];
+
+// ─── Media Items ──────────────────────────────────────────────────────────────
+export const mockMediaItems = [
+  // Graduation 2024
+  { id: 'mi1',  albumId: 'al1', type: 'photo', emoji: '🎓', bg: '#3D5A8A', caption: 'Receiving the degree!',         uploadedBy: 'Tayebwa Stuart',  uploadedByInitials: 'TS', uploadedByColor: '#3D5A8A', uploadedAt: 'Apr 15, 2024', tags: ['u3','u1','u2'], deletionRequested: false },
+  { id: 'mi2',  albumId: 'al1', type: 'photo', emoji: '📸', bg: '#2D5A3D', caption: 'Family photo at the grounds',   uploadedBy: 'Tayebwa Osbert',  uploadedByInitials: 'TO', uploadedByColor: '#2D5A3D', uploadedAt: 'Apr 15, 2024', tags: ['u1','u2','u3'], deletionRequested: false },
+  { id: 'mi3',  albumId: 'al1', type: 'photo', emoji: '🌿', bg: '#3D7A6E', caption: 'Outside the hall',              uploadedBy: 'Kyogabirwe Enid', uploadedByInitials: 'KE', uploadedByColor: '#5A3D6E', uploadedAt: 'Apr 15, 2024', tags: ['u3'],           deletionRequested: false },
+  { id: 'mi4',  albumId: 'al1', type: 'video', emoji: '🎬', bg: '#1A1A18', caption: 'Walking across the stage',      uploadedBy: 'Tayebwa Osbert',  uploadedByInitials: 'TO', uploadedByColor: '#2D5A3D', uploadedAt: 'Apr 15, 2024', tags: ['u3'],           deletionRequested: false },
+  { id: 'mi5',  albumId: 'al1', type: 'photo', emoji: '🥂', bg: '#C9A84C', caption: 'Celebration lunch after',       uploadedBy: 'Kyogabirwe Enid', uploadedByInitials: 'KE', uploadedByColor: '#5A3D6E', uploadedAt: 'Apr 16, 2024', tags: ['u1','u2','u3'], deletionRequested: false },
+  { id: 'mi6',  albumId: 'al1', type: 'photo', emoji: '🎊', bg: '#8A5A3D', caption: 'Confetti moment',               uploadedBy: 'Tayebwa Stuart',  uploadedByInitials: 'TS', uploadedByColor: '#3D5A8A', uploadedAt: 'Apr 15, 2024', tags: ['u3'],           deletionRequested: true  },
+
+  // Christmas 2024
+  { id: 'mi7',  albumId: 'al2', type: 'photo', emoji: '🎄', bg: '#C0392B', caption: 'By the Christmas tree',         uploadedBy: 'Kyogabirwe Enid', uploadedByInitials: 'KE', uploadedByColor: '#5A3D6E', uploadedAt: 'Dec 25, 2024', tags: ['u1','u2','u3','u4','u5'], deletionRequested: false },
+  { id: 'mi8',  albumId: 'al2', type: 'photo', emoji: '🍽️', bg: '#2D5A3D', caption: 'Christmas dinner table',        uploadedBy: 'Tayebwa Osbert',  uploadedByInitials: 'TO', uploadedByColor: '#2D5A3D', uploadedAt: 'Dec 25, 2024', tags: ['u1','u2'],       deletionRequested: false },
+  { id: 'mi9',  albumId: 'al2', type: 'photo', emoji: '🎁', bg: '#3D5A8A', caption: 'Opening gifts morning',         uploadedBy: 'Tayebwa Stuart',  uploadedByInitials: 'TS', uploadedByColor: '#3D5A8A', uploadedAt: 'Dec 25, 2024', tags: ['u3','u4','u5'],  deletionRequested: false },
+  { id: 'mi10', albumId: 'al2', type: 'video', emoji: '🎬', bg: '#1A1A18', caption: 'Kids singing carols',           uploadedBy: 'Kyogabirwe Enid', uploadedByInitials: 'KE', uploadedByColor: '#5A3D6E', uploadedAt: 'Dec 24, 2024', tags: ['u4','u5'],       deletionRequested: false },
+  { id: 'mi11', albumId: 'al2', type: 'photo', emoji: '🌟', bg: '#C9A84C', caption: 'Star on top of the tree',       uploadedBy: 'Turyaguma Osbert',uploadedByInitials: 'TO2',uploadedByColor: '#8A5A3D', uploadedAt: 'Dec 25, 2024', tags: [],                deletionRequested: false },
+
+  // Family Trip
+  { id: 'mi12', albumId: 'al3', type: 'photo', emoji: '🌊', bg: '#3D7A6E', caption: 'Source of the Nile',            uploadedBy: 'Tayebwa Osbert',  uploadedByInitials: 'TO', uploadedByColor: '#2D5A3D', uploadedAt: 'Aug 3, 2024',  tags: ['u1','u2','u3','u4','u5'], deletionRequested: false },
+  { id: 'mi13', albumId: 'al3', type: 'photo', emoji: '🚤', bg: '#2D5A3D', caption: 'Boat ride on the Nile',         uploadedBy: 'Tayebwa Stuart',  uploadedByInitials: 'TS', uploadedByColor: '#3D5A8A', uploadedAt: 'Aug 3, 2024',  tags: ['u3','u4'],       deletionRequested: false },
+  { id: 'mi14', albumId: 'al3', type: 'photo', emoji: '🌅', bg: '#C9A84C', caption: 'Sunset at the lodge',           uploadedBy: 'Kyogabirwe Enid', uploadedByInitials: 'KE', uploadedByColor: '#5A3D6E', uploadedAt: 'Aug 4, 2024',  tags: ['u1','u2'],       deletionRequested: false },
+  { id: 'mi15', albumId: 'al3', type: 'video', emoji: '🎬', bg: '#1A1A18', caption: 'White water rafting attempt',   uploadedBy: 'Tayebwa Stuart',  uploadedByInitials: 'TS', uploadedByColor: '#3D5A8A', uploadedAt: 'Aug 4, 2024',  tags: ['u3'],            deletionRequested: false },
+  { id: 'mi16', albumId: 'al3', type: 'photo', emoji: '🦅', bg: '#3D5A8A', caption: 'Eagles spotted near the river', uploadedBy: 'Tumusiime Emmanuel',uploadedByInitials:'TE', uploadedByColor: '#3D7A6E', uploadedAt: 'Aug 3, 2024',  tags: [],                deletionRequested: false },
+
+  // Easter 2024
+  { id: 'mi17', albumId: 'al4', type: 'photo', emoji: '🌸', bg: '#8A5A3D', caption: 'Easter Sunday after service',   uploadedBy: 'Kyogabirwe Enid', uploadedByInitials: 'KE', uploadedByColor: '#5A3D6E', uploadedAt: 'Mar 31, 2024', tags: ['u1','u2','u4','u6'], deletionRequested: false },
+  { id: 'mi18', albumId: 'al4', type: 'photo', emoji: '🥚', bg: '#C9A84C', caption: 'Easter egg hunt in the garden', uploadedBy: 'Turyaguma Osbert',uploadedByInitials: 'TO2',uploadedByColor: '#8A5A3D', uploadedAt: 'Mar 31, 2024', tags: ['u4','u5'],       deletionRequested: false },
+  { id: 'mi19', albumId: 'al4', type: 'photo', emoji: '🍖', bg: '#3D5A8A', caption: 'Lunch spread',                  uploadedBy: 'Tayebwa Osbert',  uploadedByInitials: 'TO', uploadedByColor: '#2D5A3D', uploadedAt: 'Mar 31, 2024', tags: ['u1','u2'],       deletionRequested: false },
+];
+
+// ─── Family members for tagging ───────────────────────────────────────────────
+export const mockTaggableMembers = [
+  { id: 'u1', name: 'Tayebwa Osbert',     initials: 'TO',  color: '#2D5A3D', role: 'Father'      },
+  { id: 'u2', name: 'Kyogabirwe Enid',    initials: 'KE',  color: '#5A3D6E', role: 'Mother'      },
+  { id: 'u3', name: 'Tayebwa Stuart',     initials: 'TS',  color: '#3D5A8A', role: '1st Born'    },
+  { id: 'u4', name: 'Turyaguma Osbert',   initials: 'TO2', color: '#8A5A3D', role: '2nd Born'    },
+  { id: 'u5', name: 'Tumusiime Emmanuel', initials: 'TE',  color: '#3D7A6E', role: '3rd Born'    },
+  { id: 'u6', name: 'James Nakimera',     initials: 'JN',  color: '#6E3D3D', role: 'Grandfather' },
+  { id: 'u7', name: 'Christine Opio',     initials: 'CO',  color: '#3D6E5A', role: 'Aunt'        },
+];
+
+// ─── Stats ────────────────────────────────────────────────────────────────────
+export const mockMemoryStats = {
+  totalPhotos:    147,
+  totalVideos:    9,
+  totalAlbums:    mockAlbums.length,
+  contributors:   5,
+};
+
+// ─── Years (derived, kept as const for filter) ────────────────────────────────
+export const mockYears = ['2024', '2023'];
+
+// ─── Events (derived) ─────────────────────────────────────────────────────────
+export const mockEvents = ['Graduation', 'Christmas', 'Family Trip', 'Easter', 'Birthday', 'Mothers Day', 'School'];

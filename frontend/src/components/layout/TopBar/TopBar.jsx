@@ -19,37 +19,54 @@ function getInitials(name = '') {
     .toUpperCase();
 }
 
-export default function TopBar() {
-  const navigate = useNavigate();
-  const user = useAuthStore(state => state.user);
-  const logout = useAuthStore(state => state.logout);
-  const [menuOpen, setMenuOpen] = useState(false);
+// onMenuClick — called when the hamburger is pressed (mobile only)
+// menuOpen    — whether the sidebar drawer is currently open
+export default function TopBar({ onMenuClick, menuOpen }) {
+  const navigate  = useNavigate();
+  const user      = useAuthStore(state => state.user);
+  const logout    = useAuthStore(state => state.logout);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const menuRef = useRef(null);
 
   // Close dropdown on outside click
   useEffect(() => {
     function handleClick(e) {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setMenuOpen(false);
+        setDropdownOpen(false);
       }
     }
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
   }, []);
 
-  const initials = getInitials(user?.name);
+  const initials  = getInitials(user?.name);
   const firstName = user?.name?.split(' ')[0] ?? 'Family';
 
   return (
     <header className={styles.topBar}>
 
-      {/* Left — brand */}
-      <div className={styles.brand}>
-        <span className={styles.brandMark}>K</span>
-        <span className={styles.brandName}>KinnectHub</span>
+      {/* ── Left: hamburger (mobile) + brand (mobile) ─────────────────── */}
+      <div className={styles.left}>
+        {/* Hamburger — only visible on mobile */}
+        <button
+          className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ''}`}
+          onClick={onMenuClick}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+        >
+          <span className={styles.bar} />
+          <span className={styles.bar} />
+          <span className={styles.bar} />
+        </button>
+
+        {/* Brand — visible on mobile only (desktop has it in the sidebar) */}
+        <div className={styles.brand}>
+          <div className={styles.brandMark}>K</div>
+          <span className={styles.brandName}>KinnectHub</span>
+        </div>
       </div>
 
-      {/* Right — greeting + avatar menu */}
+      {/* ── Right: greeting + avatar dropdown ────────────────────────── */}
       <div className={styles.right}>
         <span className={styles.greeting}>
           {getGreeting()}, <strong>{firstName}</strong>
@@ -58,15 +75,15 @@ export default function TopBar() {
         <div className={styles.avatarWrap} ref={menuRef}>
           <button
             className={styles.avatarBtn}
-            onClick={() => setMenuOpen(v => !v)}
+            onClick={() => setDropdownOpen(v => !v)}
             aria-label="Open profile menu"
-            aria-expanded={menuOpen}
+            aria-expanded={dropdownOpen}
           >
             <span className={styles.avatar}>{initials}</span>
-            <span className={styles.chevron}>{menuOpen ? '▲' : '▼'}</span>
+            <span className={styles.chevron}>{dropdownOpen ? '▲' : '▼'}</span>
           </button>
 
-          {menuOpen && (
+          {dropdownOpen && (
             <div className={styles.dropdown}>
               <div className={styles.dropdownHeader}>
                 <div className={styles.dropdownAvatar}>{initials}</div>
@@ -80,10 +97,16 @@ export default function TopBar() {
 
               <div className={styles.dropdownDivider} />
 
-              <button className={styles.dropdownItem}>
+              <button
+                className={styles.dropdownItem}
+                onClick={() => { navigate('/profile'); setDropdownOpen(false); }}
+              >
                 <span className={styles.dropdownItemIcon}>👤</span> My Profile
               </button>
-              <button className={styles.dropdownItem}>
+              <button
+                className={styles.dropdownItem}
+                onClick={() => { navigate('/settings'); setDropdownOpen(false); }}
+              >
                 <span className={styles.dropdownItemIcon}>⚙️</span> Settings
               </button>
 

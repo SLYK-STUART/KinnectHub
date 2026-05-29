@@ -12,11 +12,13 @@ import {
 
 // ─── Theme Toggle ─────────────────────────────────────────────────────────────
 function useTheme() {
+
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('kh-theme') || 'light';
     document.documentElement.setAttribute('data-theme', saved);
     return saved;
   });
+
   const toggle = () => {
     const next = theme === 'light' ? 'dark' : 'light';
     setTheme(next);
@@ -107,6 +109,7 @@ function FamilyTree({ onNodeClick }) {
 
         {/* Gen 1 — Grandparents + Extended */}
         <div className={styles.treeGeneration} style={{ gap: 56 }}>
+          {/* Spouse pair */}
           <div className={styles.spousePair}>
             {grandparents.map((m, i) => (
               <div key={m.id} style={{ display:'flex', alignItems:'center' }}>
@@ -206,11 +209,14 @@ export default function Home() {
 
           {/* Family Tree */}
           <div className={styles.card}>
+            {/* top section*/}         
             <div className={styles.cardHeader}>
               <span className={styles.cardTitle}>🌳 Family Tree</span>
               <button className={styles.cardAction}>Edit Tree</button>
             </div>
+            
             <FamilyTree onNodeClick={setSelectedMember} />
+
             <div className={styles.memberBar}>
               <div className={styles.memberAvatarStack}>
                 {mockFamilyMembers.slice(0, 5).map(m => (
@@ -222,6 +228,7 @@ export default function Home() {
               </div>
               <span className={styles.memberCount}>{mockFamilyMembers.length} family members</span>
             </div>
+
           </div>
 
           {/* Announcements */}
