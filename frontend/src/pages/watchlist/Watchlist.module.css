@@ -736,9 +736,10 @@
   }
 
   .filterBar {
-    flex-direction: column;
+    flex-direction: row;
     align-items: stretch;
-    gap: 10px;
+    justify-content: space-evenly;
+     
   }
 
   .searchBox {
@@ -804,8 +805,15 @@
   }
 
   .statsStrip {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2, 1fr;
     gap: 10px;
+  }
+
+    .filterBar {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-evenly;
+     
   }
 
   .addBtn {
