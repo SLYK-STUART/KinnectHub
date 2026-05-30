@@ -737,8 +737,8 @@
 
   .filterBar {
     flex-direction: row;
+    grid-template-rows: 1fr;
     align-items: stretch;
-    justify-content: space-evenly;
      
   }
 
@@ -809,10 +809,10 @@
     gap: 10px;
   }
 
-    .filterBar {
+  .filterBar {
     flex-direction: row;
+    grid-template-rows: 1fr;
     align-items: stretch;
-    justify-content: space-evenly;
      
   }
 
