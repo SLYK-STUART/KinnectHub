@@ -951,8 +951,16 @@
   }
 
   .statsStrip {
-    grid-template-columns: 1fr; 
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
   }
+
+  .statCard  { padding: 12px 14px; gap: 10px; }
+  .statIcon  { width: 36px; height: 36px; font-size: 17px; border-radius: 10px; }
+  .statValue { font-size: 20px; }
+  .statLabel { font-size: 10px; }
+
 
   .treeWrap {
     min-width: 420px;
