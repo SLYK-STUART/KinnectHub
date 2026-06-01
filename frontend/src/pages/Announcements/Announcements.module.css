@@ -978,7 +978,16 @@
 }
 
 @media (max-width: 480px) {
-  .page { padding: 16px 12px; }
+  .page { 
+    padding: 16px 12px;
+    max-width: 480px; 
+  }
   .announcementHeader { padding: 14px; }
   .announcementMeta { min-width: 0; }
+}
+
+@media (max-width: 360px) {
+  .page{
+    max-width: 360px;
+  }
 }
