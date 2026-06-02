@@ -22,6 +22,8 @@ import Calendar from "../pages/Calendar/Calendar";
 
 import MemoryBook from "../pages/MemoryBook/MemoryBook";
 
+import Profile from "../pages/Profile/Profile";
+
 function AppRouter() {
     return (
         <BrowserRouter>
@@ -44,7 +46,9 @@ function AppRouter() {
 
                 <Route path="/calendar" element={<Calendar />} />
 
-                <Route path="memory_book" element={<MemoryBook />} />
+                <Route path="/memory_book" element={<MemoryBook />} />
+
+                <Route path="/profile" element={<Profile />} />
 
                 <Route element={<ProtectedRoute />}>
                     <Route path="/" element={<Home />} />
