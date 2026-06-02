@@ -149,6 +149,19 @@ function AnnouncementCard({ announcement }) {
         <>
           {replies.length > 0 && <div className={styles.divider} />}
           <div className={styles.repliesSection}>
+
+            <div className={styles.replyInputRow}>
+              <Avatar initials="TO" color="#2D5A3D" size={28} fontSize={9} />
+              <input
+                className={styles.replyInput}
+                placeholder={replies.length === 0 ? 'Be the first to reply...' : 'Write a reply...'}
+                value={replyText}
+                onChange={e => setReplyText(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && sendReply()}
+              />
+              <button className={styles.sendBtn} onClick={sendReply}>➤</button>
+            </div>
+            
             {replies.length > 0 && (
               <>
                 <div className={styles.repliesLabel}>Replies</div>
@@ -169,18 +182,7 @@ function AnnouncementCard({ announcement }) {
                 ))}
               </>
             )}
-
-            <div className={styles.replyInputRow}>
-              <Avatar initials="TO" color="#2D5A3D" size={28} fontSize={9} />
-              <input
-                className={styles.replyInput}
-                placeholder={replies.length === 0 ? 'Be the first to reply...' : 'Write a reply...'}
-                value={replyText}
-                onChange={e => setReplyText(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' && sendReply()}
-              />
-              <button className={styles.sendBtn} onClick={sendReply}>➤</button>
-            </div>
+            
           </div>
         </>
       )}
