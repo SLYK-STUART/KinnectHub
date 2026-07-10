@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+import firebase_admin
+from firebase_admin import credentials, initialize_app
 
 load_dotenv()
 
@@ -12,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*&yyef)-zv0a6x!+hp$!7t)%8*vy+sbi@3_6@jp%3$7hl18alc'
+SECRET_KEY =os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -162,7 +164,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
 ]
+
 CORS_ALLOW_CREDENTIALS = True
 
 from datetime import timedelta
@@ -170,9 +176,13 @@ from datetime import timedelta
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
+
     'UPDATE_LAST_LOGIN': True,
+
+    'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
 
@@ -181,3 +191,10 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
     },
 }
+
+# firebase
+CRED_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+cred_path = os.path.join(CRED_DIR, 'core', 'firebase', 'serviceAccountKey.json')
+cred = credentials.Certificate(cred_path)
+firebase_admin.initialize_app(cred)

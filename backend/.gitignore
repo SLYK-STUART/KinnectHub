@@ -34,3 +34,5 @@ Thumbs.db
 htmlcov/
 .coverage
 *.cover
+
+core/firebase/serviceAccountKey.json
